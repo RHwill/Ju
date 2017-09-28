@@ -4,15 +4,16 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Car View Controller-->
         <scene sceneID="7jy-bq-wZ6">
             <objects>
-                <viewController id="NTW-0o-OVB" sceneMemberID="viewController">
+                <viewController id="NTW-0o-OVB" customClass="CarViewController" customModule="Ju" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="THf-he-rpP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="470" y="72"/>
         </scene>
-        <!--View Controller-->
+        <!--Ju View Controller-->
         <scene sceneID="8K1-LS-h6m">
             <objects>
-                <viewController id="3tY-fm-SJU" sceneMemberID="viewController">
+                <viewController id="3tY-fm-SJU" customClass="JuViewController" customModule="Ju" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tYb-df-6qR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,10 +100,10 @@
             </objects>
             <point key="canvasLocation" x="-361" y="72"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="uft-0I-NIq">
             <objects>
-                <viewController id="5qA-8w-X8X" sceneMemberID="viewController">
+                <viewController id="5qA-8w-X8X" customClass="HomeViewController" customModule="Ju" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jYY-Sc-ciL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -115,10 +116,10 @@
             </objects>
             <point key="canvasLocation" x="455" y="767"/>
         </scene>
-        <!--View Controller-->
+        <!--Me View Controller-->
         <scene sceneID="HPq-Bp-8HV">
             <objects>
-                <viewController id="o9N-V7-hO7" sceneMemberID="viewController">
+                <viewController id="o9N-V7-hO7" customClass="MeViewController" customModule="Ju" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OyZ-Yk-ZdV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
