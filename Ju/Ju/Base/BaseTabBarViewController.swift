@@ -1,21 +1,21 @@
 //
-//  BaseViewController.swift
+//  BaseTabBarViewController.swift
 //  Ju
 //
-//  Created by 蔡荣辉 on 2017/9/26.
+//  Created by 蔡荣辉 on 2017/9/28.
 //  Copyright © 2017年 蔡荣辉. All rights reserved.
 //
 
 import UIKit
 
-class BaseViewController: UIViewController {
+class BaseTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.theme_backgroundColor = globalBackgroundColorPicker
-        
-        navigationItem.title = "聚聚"
-        // Do any additional setup after loading the view.
+
+        self.tabBar.isTranslucent = false;
+        self.tabBar.theme_tintColor = globalBarTextColorPicker
+        self.tabBar.theme_barTintColor = globalBarTintColorPicker
     }
 
     override func didReceiveMemoryWarning() {

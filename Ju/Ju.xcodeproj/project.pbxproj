@@ -14,6 +14,9 @@
 		20B74BBE1F7A93C700B0EFB0 /* CarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B74BBD1F7A93C700B0EFB0 /* CarViewController.swift */; };
 		20B74BC01F7A93CE00B0EFB0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B74BBF1F7A93CE00B0EFB0 /* HomeViewController.swift */; };
 		20B74BC21F7A93DD00B0EFB0 /* JuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B74BC11F7A93DD00B0EFB0 /* JuViewController.swift */; };
+		20B74BC41F7CF03800B0EFB0 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B74BC31F7CF03800B0EFB0 /* BaseView.swift */; };
+		20B74BC61F7CF4F500B0EFB0 /* BaseNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B74BC51F7CF4F500B0EFB0 /* BaseNavViewController.swift */; };
+		20B74BC81F7CF51500B0EFB0 /* BaseTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B74BC71F7CF51500B0EFB0 /* BaseTabBarViewController.swift */; };
 		519EE7A1727FE8E0A31FA4A7 /* Pods_Ju.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67B9AFA88584F9A3ECC1B5BC /* Pods_Ju.framework */; };
 		FCB0419C1F7952A00058A110 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB0419B1F7952A00058A110 /* AppDelegate.swift */; };
 		FCB041A11F7952A00058A110 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB0419F1F7952A00058A110 /* Main.storyboard */; };
@@ -49,6 +52,9 @@
 		20B74BBD1F7A93C700B0EFB0 /* CarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewController.swift; sourceTree = "<group>"; };
 		20B74BBF1F7A93CE00B0EFB0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		20B74BC11F7A93DD00B0EFB0 /* JuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuViewController.swift; sourceTree = "<group>"; };
+		20B74BC31F7CF03800B0EFB0 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		20B74BC51F7CF4F500B0EFB0 /* BaseNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavViewController.swift; sourceTree = "<group>"; };
+		20B74BC71F7CF51500B0EFB0 /* BaseTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarViewController.swift; sourceTree = "<group>"; };
 		67B9AFA88584F9A3ECC1B5BC /* Pods_Ju.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ju.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7CB6F1B836608458D320BF7 /* Pods-Ju.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ju.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ju/Pods-Ju.debug.xcconfig"; sourceTree = "<group>"; };
 		FCB041981F7952A00058A110 /* Ju.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ju.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +110,9 @@
 			isa = PBXGroup;
 			children = (
 				20B74BB91F7A923200B0EFB0 /* BaseViewController.swift */,
+				20B74BC31F7CF03800B0EFB0 /* BaseView.swift */,
+				20B74BC51F7CF4F500B0EFB0 /* BaseNavViewController.swift */,
+				20B74BC71F7CF51500B0EFB0 /* BaseTabBarViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -395,7 +404,10 @@
 				FCB0419C1F7952A00058A110 /* AppDelegate.swift in Sources */,
 				20B74BBA1F7A923200B0EFB0 /* BaseViewController.swift in Sources */,
 				20B74BB61F7A8F2C00B0EFB0 /* ThemeControl.swift in Sources */,
+				20B74BC61F7CF4F500B0EFB0 /* BaseNavViewController.swift in Sources */,
 				20B74BC01F7A93CE00B0EFB0 /* HomeViewController.swift in Sources */,
+				20B74BC81F7CF51500B0EFB0 /* BaseTabBarViewController.swift in Sources */,
+				20B74BC41F7CF03800B0EFB0 /* BaseView.swift in Sources */,
 				20B74BB81F7A8FAE00B0EFB0 /* Global.swift in Sources */,
 				20B74BC21F7A93DD00B0EFB0 /* JuViewController.swift in Sources */,
 			);

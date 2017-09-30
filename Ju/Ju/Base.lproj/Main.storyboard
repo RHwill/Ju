@@ -42,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="471" y="-587"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Base Tab Bar View Controller-->
         <scene sceneID="PwO-Qz-bKT">
             <objects>
-                <tabBarController id="kec-67-5HK" sceneMemberID="viewController">
+                <tabBarController id="kec-67-5HK" customClass="BaseTabBarViewController" customModule="Ju" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fuG-z8-TmK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -65,7 +65,7 @@
         <!--聚聚-->
         <scene sceneID="uNh-wx-1fB">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JBR-54-HfL" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JBR-54-HfL" customClass="BaseNavViewController" customModule="Ju" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="聚聚" id="XRf-a8-96A"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="C5W-E4-XrQ">
@@ -84,7 +84,7 @@
         <!--车-->
         <scene sceneID="iAY-fr-19V">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cM9-Fl-mui" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cM9-Fl-mui" customClass="BaseNavViewController" customModule="Ju" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="车" id="vd8-ub-DwD"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Sur-Sv-BDQ">
@@ -135,7 +135,7 @@
         <!--我-->
         <scene sceneID="qLz-36-dpk">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KWK-p2-z12" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KWK-p2-z12" customClass="BaseNavViewController" customModule="Ju" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="我" id="xBF-WR-p2u"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="w9E-cJ-4pj">
@@ -154,7 +154,7 @@
         <!--家-->
         <scene sceneID="sgG-NM-R1K">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8DV-t5-vWL" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8DV-t5-vWL" customClass="BaseNavViewController" customModule="Ju" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="家" id="fBt-ei-RUy"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FqQ-Nx-ypr">

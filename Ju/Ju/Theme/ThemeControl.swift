@@ -55,7 +55,7 @@ enum ThemeControlType: Int {
 
 class ThemeControl: NSObject {
     
-    static var themeControlManager = ThemeControl()
+    static var manager = ThemeControl()
     fileprivate override init() {}
     
     /// 修改主题
@@ -74,6 +74,7 @@ class ThemeControl: NSObject {
                 NSAttributedStringKey.shadow: shadow
             ]
         }
+        navigationBar.isTranslucent = false;
         
         navigationBar.theme_tintColor = globalBarTextColorPicker
         navigationBar.theme_barTintColor = globalBarTintColorPicker
@@ -81,6 +82,7 @@ class ThemeControl: NSObject {
         
         // tab bar
         let tabBar = UITabBar.appearance()
+        tabBar.isTranslucent = false
         tabBar.theme_tintColor = globalBarTextColorPicker
         tabBar.theme_barTintColor = globalBarTintColorPicker
     }

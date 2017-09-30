@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import SwiftTheme
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // status bar
+        UIApplication.shared.theme_setStatusBarStyle([.default, .lightContent], animated: true)
+        
+        
         
         
         return true
