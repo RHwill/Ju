@@ -35,9 +35,9 @@ class DetailMarketReusableView: UICollectionReusableView, UICollectionViewDelega
         return (collectionArray?.count)!
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: IndexPathIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell: DetailMarketHeaderCell = detailCollectionView.dequeueReusableCellWithReuseIdentifier("DetailMarketHeaderCellIdentifier", forIndexPath: indexPath as IndexPath) as! DetailMarketHeaderCell
+        let cell: DetailMarketHeaderCell = detailCollectionView.dequeueReusableCell(withReuseIdentifier: "DetailMarketHeaderCellIdentifier", for: indexPath as IndexPath) as! DetailMarketHeaderCell
 
         let titleStr = collectionArray?.object(at: indexPath.row)
         cell.titleLable.text = titleStr as? String
@@ -47,7 +47,7 @@ class DetailMarketReusableView: UICollectionReusableView, UICollectionViewDelega
         
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
         let titleStr: String = collectionArray?.object(at: indexPath.row) as! String
         

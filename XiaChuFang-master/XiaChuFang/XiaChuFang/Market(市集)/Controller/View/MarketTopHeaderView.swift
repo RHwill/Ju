@@ -26,7 +26,7 @@ class MarketTopHeaderView: UICollectionReusableView {
     
     @IBAction func classicalBtnsAction(sender: UIButton) {
         if let _delegate = delegate {
-            _delegate.marketTopHeaderViewClassicalBtnsAction(sender)
+            _delegate.marketTopHeaderViewClassicalBtnsAction(sender: sender)
         }
     }
     

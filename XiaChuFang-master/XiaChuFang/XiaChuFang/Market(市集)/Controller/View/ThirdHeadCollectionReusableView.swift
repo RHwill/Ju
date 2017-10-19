@@ -24,7 +24,7 @@ class ThirdHeadCollectionReusableView: UICollectionReusableView {
         leftView.backgroundColor = UIColor(red: 241/255.0, green: 241/255.0, blue: 241/255.0, alpha: 1.0)
         self.addSubview(leftView)
         
-        titleLable = UILabel(frame: CGRect(x:10, y:10, weidth:SCREENWIDTH-10, height:13))
+        titleLable = UILabel(frame: CGRect(x:10, y:10, width:SCREENWIDTH-10, height:13))
         titleLable.text = "已上架"
         titleLable.font = UIFont.systemFont(ofSize: 13)
         leftView.addSubview(titleLable!)

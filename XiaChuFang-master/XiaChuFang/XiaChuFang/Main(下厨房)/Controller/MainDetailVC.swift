@@ -12,7 +12,7 @@ class MainDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     
     @IBOutlet weak var myCollectionView: UICollectionView!
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.hidesBottomBarWhenPushed = true
     }
@@ -36,7 +36,7 @@ class MainDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         
         let leftBtn = UIButton.init(frame: CGRect(x:10, y:10, width:20, height:20))
         leftBtn.setImage(UIImage(imageLiteralResourceName: "back"), for: UIControlState.normal)
-        leftBtn.setTitleColor(UIColor.blackColor(), forState: UIControlState.normal)
+        leftBtn.setTitleColor(UIColor.black, for: UIControlState.normal)
         leftBtn.addTarget(self, action:#selector(leftBtnAction), for: UIControlEvents.touchUpInside)
         let leftItem = UIBarButtonItem.init(customView: leftBtn)
         self.navigationItem.leftBarButtonItem = leftItem
@@ -44,7 +44,7 @@ class MainDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         self.title = "UICollectionView Swift版"
     }
     
-    func leftBtnAction() {
+    @objc func leftBtnAction() {
         print("返回返回")
         //前提：确保当前ViewController是通过NavigationController的PushView方法跳转来的
         //方式一：跳转到前一个页面
@@ -64,7 +64,7 @@ class MainDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        collectionView.registerregister(UINib(nibName: "MyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "myCollectionCell")
+        collectionView.register(UINib(nibName: "MyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "myCollectionCell")
         let cell: MyCollectionViewCell = myCollectionView.dequeueReusableCell(withReuseIdentifier: "myCollectionCell", for: indexPath) as! MyCollectionViewCell
         cell.titleLab.text = "\(indexPath.section):\(indexPath.row)"
         return cell
@@ -73,8 +73,8 @@ class MainDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     /**
      - returns: 返回headview或者footview
      */
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "MyCollectionHeaderView", forIndexPath: indexPath as IndexPath)
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "MyCollectionHeaderView", for: indexPath as IndexPath)
         headerView.backgroundColor = UIColor.white
         
         return headerView
@@ -84,7 +84,7 @@ class MainDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
     /**
     Description:当点击某个Item之后的回应
     */
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("(\(indexPath.section),\(indexPath.row))")
     }
     
@@ -116,7 +116,7 @@ class MainDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         // 设置cell的大小
         layout.itemSize = CGSize(width: 100, height: 100)
         // 滑动方向，默认方向是垂直方向
-        layout.scrollDirection = .Vertical
+        layout.scrollDirection = .vertical
         // 每个Item之间最小间距
         layout.minimumInteritemSpacing = 10
         // 每行之间最小间距
@@ -129,10 +129,10 @@ class MainDetailVC: UIViewController, UICollectionViewDataSource, UICollectionVi
         myCollectionView.backgroundColor = UIColor.white
         
         // CollectionViewCell的注册
-        myCollectionView.registerNib(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MyCell")
+        myCollectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MyCell")
         
         // header的注册
-        myCollectionView.registerClass(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "MyCollectionHeaderView")
+        myCollectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "MyCollectionHeaderView")
         
         self.view.addSubview(myCollectionView)
     }

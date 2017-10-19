@@ -32,8 +32,8 @@ class TriangleLayer: CAShapeLayer {
     var smallTrianglePath: UIBezierPath {
         let smallPath = UIBezierPath()
         smallPath.move(to: CGPoint(x:5.0 + paddingSpace, y:95.0))
-        smallPath.addLineToPoint(CGPoint(x:50.0, y:12.5 + paddingSpace))
-        smallPath.addLineToPoint(CGPoint(x:95.0 - paddingSpace, y:95.0))
+        smallPath.addLine(to: CGPoint(x:50.0, y:12.5 + paddingSpace))
+        smallPath.addLine(to: CGPoint(x:95.0 - paddingSpace, y:95.0))
         smallPath.close()
         return smallPath
     }

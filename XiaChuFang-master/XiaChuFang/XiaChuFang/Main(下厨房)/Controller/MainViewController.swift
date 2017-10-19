@@ -40,27 +40,26 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     // MARK: - tableView Delegate && tableView DataSource
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         print(mainArray!.count)
-
         return (mainArray?.count)!
     }
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 180
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var sectionArr = NSMutableArray()
         sectionArr = mainArray![section] as! NSMutableArray
         print(sectionArr.count)
         
         return sectionArr.count
     }
+
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = "mainCell"
-        let cell = MainClassicalCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: identifier)
+        let cell = MainClassicalCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: identifier)
         
         //下面两个属性对应subtitle
 //        cell.firstTitle?.text = mainArray![indexPath.row] as? String
@@ -70,7 +69,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         var dic = Dictionary<String, String>()
         dic["name"] = sectionArr[indexPath.row] as? String
-        cell.setValueForCell(dic)
+        cell.setValueForCell(dic: dic)
         
         //添加照片
 //        cell.showImage?.image = UIImage(named: mainArray![indexPath.row] as! String)
@@ -78,24 +77,24 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         var headerArray = NSArray()
-        headerArray = NSBundle.mainBundle().loadNibNamed("MainClassicalSectionHeaderView", owner: nil, options: nil)
+        headerArray = Bundle.main.loadNibNamed("MainClassicalSectionHeaderView", owner: nil, options: nil)! as NSArray
         
         let sectionHeaderView = headerArray.firstObject as! MainClassicalSectionHeaderView
 
         return sectionHeaderView
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }
     
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.0000000001
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    private func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
         // 实例化一个将要跳转的viewController
         let detailVC = MainDetailVC()
         // 跳转
@@ -106,7 +105,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK:  MainHeaderView顶部两个大按钮的点击事件
     func mainHeaderViewTopBtnClick(title: NSString) {
         print("title====\(title)")
-        if title.isEqualToString("left") {
+        if title.isEqual(to: "left") {
             // MainHeaderView左上角点击事件
             print("MainHeaderView左上角点击事件")
         } else {
@@ -117,7 +116,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // MARK:  MainHeaderView中间四个小按钮的点击事件
     func mainHeaderViewCenterBtnsClick(sender: CustomCentBtn) {
-        print("centerBtn.title====\(sender.titlLab.text)")
+        print("centerBtn.title====\(String(describing: sender.titlLab.text))")
     }
     
     // MARK:-  MainHeaderView底部轮播图点击事件
@@ -128,26 +127,26 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // MARK:- UISearchBarDelegate
     // MARK: 输入框内容改变触发事件
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print("输入框内容改变触发事件：\(searchText)")
     }
     
     // MARK: 书签按钮触发事件
-    func searchBarBookmarkButtonClicked(searchBar: UISearchBar) {
+    internal func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
         print("搜索历史")
     }
     
     // MARK: 取消按钮触发事件
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         print("取消搜索")
     }
 
     // MARK: 搜索触发事件
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("开始搜索")
     }
     
-    func searchBarShouldBeginEditing(searchBar: UISearchBar) -> Bool {
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         print("开始编辑")
         let searchVC = SearchViewController()
         searchVC.hidesBottomBarWhenPushed = true
@@ -158,7 +157,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK:- loadDataSource
     func loadDataSource() {
         
-        let path = NSBundle.mainBundle().pathForResource("mainListPlist", ofType: "plist")
+        let path = Bundle.main.path(forResource: "mainListPlist", ofType: "plist")
         let sourceArr = NSMutableArray.init(contentsOfFile: path!)
         
         mainArray = NSMutableArray.init(array: sourceArr!)
@@ -170,20 +169,20 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK:- LayoutUIs
     
     func setUpTable(){
-        mainTable = UITableView.init(frame: CGRect(0, 0, SCREENWIDTH, SCREENHEIGHT) , style: UITableViewStyle.Grouped)
+        mainTable = UITableView.init(frame: CGRect(x:0, y:0, width:SCREENWIDTH, height:SCREENHEIGHT) , style: UITableViewStyle.grouped)
         mainTable!.delegate = self
         mainTable!.dataSource = self
         mainTable!.backgroundColor = UIColor.white
         self.view.addSubview(mainTable!)
         
-        headerView = MainHeaderView.init(frame: CGRect(0, 0, SCREENWIDTH, 340))
+        headerView = MainHeaderView.init(frame: CGRect(x:0, y:0, width:SCREENWIDTH, height:340))
         headerView?.delegate = self
         headerView?.circleView.imageArray = [UIImage(named: "first.jpg"), UIImage(named: "second.jpg"), UIImage(named: "third.jpg")]
         headerView?.circleView.delegate = self
         mainTable?.tableHeaderView = headerView
     }
     
-    func leftBtnAction() {
+    @objc func leftBtnAction() {
         
     }
     
@@ -191,10 +190,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func layoutNavigationBar() {
         searchBar = UISearchBar(frame: CGRect.init(x: 30, y: 20, width: SCREENWIDTH-60, height: 40))
         searchBar?.placeholder = "菜谱、食材"
-        searchBar?.barStyle = UIBarStyle.Default
-        searchBar?.barTintColor = UIColor.darkGrayColor()
-        searchBar?.tintColor = UIColor.blackColor()
-        searchBar?.translucent = true
+        searchBar?.barStyle = UIBarStyle.default
+        searchBar?.barTintColor = UIColor.darkGray
+        searchBar?.tintColor = UIColor.black
+        searchBar?.isTranslucent = true
         searchBar?.showsBookmarkButton = false
         searchBar?.showsCancelButton = false
         searchBar?.showsSearchResultsButton = false
@@ -204,17 +203,17 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.navigationItem.titleView = searchBar
         
-        let leftBtn = UIButton.init(frame: CGRect(0, 0, 20, 20))
-        leftBtn.setImage(UIImage(imageLiteralResourceName: "jiahao"), forState: UIControlState.normal)
-        leftBtn.setTitleColor(UIColor.blackColor(), forState: UIControlState.normal)
-        leftBtn.addTarget(self, action:"leftBtnAction", forControlEvents: UIControlEvents.TouchUpInside)
+        let leftBtn = UIButton.init(frame: CGRect(x:0, y:0, width:20, height:20))
+        leftBtn.setImage(UIImage(imageLiteralResourceName: "jiahao"), for: UIControlState.normal)
+        leftBtn.setTitleColor(UIColor.black, for: UIControlState.normal)
+        leftBtn.addTarget(self, action:#selector(leftBtnAction), for: UIControlEvents.touchUpInside)
         let leftItem = UIBarButtonItem.init(customView: leftBtn)
         self.navigationItem.leftBarButtonItem = leftItem
         
-        let rightBtn = UIButton.init(frame: CGRect(0, 0, 20, 20))
-        rightBtn.setImage(UIImage(imageLiteralResourceName: "cailan"), forState: UIControlState.normal)
-        rightBtn.setTitleColor(UIColor.blackColor(), forState: UIControlState.normal)
-        rightBtn.addTarget(self, action:"leftBtnAction", forControlEvents: UIControlEvents.TouchUpInside)
+        let rightBtn = UIButton.init(frame: CGRect(x:0, y:0, width:20, height:20))
+        rightBtn.setImage(UIImage(imageLiteralResourceName: "cailan"), for: UIControlState.normal)
+        rightBtn.setTitleColor(UIColor.black, for: UIControlState.normal)
+        rightBtn.addTarget(self, action:#selector(leftBtnAction), for: UIControlEvents.touchUpInside)
         let rightItem = UIBarButtonItem.init(customView: rightBtn)
         self.navigationItem.rightBarButtonItem = rightItem
         

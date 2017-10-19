@@ -10,6 +10,8 @@ import UIKit
 
 class EditPersonalController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, LJPlacePickerViewDelegate, LJDatePickerViewDelegate {
     
+    
+    
     var BASETAGNUMBER: Int = 55555
     var selectedBtn: UIButton?
     
@@ -137,12 +139,11 @@ class EditPersonalController: UIViewController, UIImagePickerControllerDelegate,
         }
     }
 
-    
     func dismissPickerViewAction(button: UIButton!,  provinceStr: String?, cityStr: String?, townStr: String?) {
         self.view.endEditing(false)
         
-        let titleStr:String = (button.titleLabel?.text)!
-        if titleStr.isEqual("完成") {
+        let titleStr = button.titleLabel!.text
+        if (titleStr?.isEqual("完成"))! {
         var newStr = String()
         newStr += provinceStr!
         newStr += ","

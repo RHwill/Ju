@@ -69,7 +69,7 @@ class ScreenViewController: UIViewController , LJAnimationViewDelegate {
     
     func addTouchButton() {
         let button = UIButton()
-        button.frame = CGRect(x:0.0, y:0.0, width:view.bounds.width, heiht:view.bounds.height)
+        button.frame = CGRect(x:0.0, y:0.0, width:view.bounds.width, height:view.bounds.height)
         button.addTarget(self, action: #selector(btnClick), for: .touchUpInside)
         view.addSubview(button)
     }

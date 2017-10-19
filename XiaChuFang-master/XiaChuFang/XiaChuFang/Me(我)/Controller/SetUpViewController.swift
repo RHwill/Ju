@@ -42,7 +42,7 @@ class SetUpViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.layoutUIs()
     }
     
-    func leftBtnAction(sender: AnyObject) {
+    @objc func leftBtnAction(sender: AnyObject) {
         self.navigationController?.popToRootViewController(animated: true)
     }
 
@@ -69,14 +69,13 @@ class SetUpViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         if section == 0 {
-            var headerArray = Array<Any>()
-            headerArray = Bundle.main.loadNibNamed("SetUpHeaderView", owner: nil, options: nil)!
+            let headerArray = Bundle.main.loadNibNamed("SetUpHeaderView", owner: nil, options: nil)!
             
-            let setUpHeaderView = headerArray.firstObject as! SetUpHeaderView
+            let setUpHeaderView = headerArray.first as! SetUpHeaderView
             setUpHeaderView.delegate = self
             return setUpHeaderView
         } else {
-            let headerView = UIView.init(frame: CGRect(0, 0, SCREENWIDTH, 80))
+            let headerView = UIView.init(frame: CGRect(x:0, y:0, width:SCREENWIDTH, height:80))
             headerView.backgroundColor = XCFColor(r: 242, g: 242, b: 242)
             headerView.backgroundColor = XCFColor(r: 242, g: 242, b: 242)
             return headerView

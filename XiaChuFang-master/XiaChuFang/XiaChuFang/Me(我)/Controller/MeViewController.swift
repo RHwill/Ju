@@ -25,10 +25,10 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     // MARK: - UITableViewDelegate && UITableViewDataSource
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
@@ -174,7 +174,7 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
 //        let leftBtn = UIButton.init(frame: CGRect(0, 10, 20, 20))
 //        leftBtn.setImage(UIImage(imageLiteralResourceName: "fenlei"), forState: UIControlState.normal)
 //        leftBtn.setTitleColor(UIColor.blackColor(), forState: UIControlState.normal)
-//        leftBtn.addTarget(self, action:"rightBarBtnAction", forControlEvents: UIControlEvents.TouchUpInside)
+//        leftBtn.addTarget(self, action:"rightBarBtnAction", forControlEvents: UIControlEvents.touchUpInside)
 //        let leftItem = UIBarButtonItem.init(customView: leftBtn)
 //        self.navigationItem.leftBarButtonItem = leftItem
         

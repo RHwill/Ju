@@ -41,7 +41,7 @@ class MainClassicalCell: UITableViewCell {
         self.addSubview(firstTitle!)
     }
 
-    func setValueForCell(dic: NSDictionary) {
+    func setValueForCell(dic: Dictionary<String, String>) {
         subTitle!.text = "45道菜谱"
         firstTitle!.text = "世界各地大排档的招牌美食"
         

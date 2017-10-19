@@ -19,15 +19,15 @@ class LJPlacePickerView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     weak var delegate: LJPlacePickerViewDelegate?
     
     var placePicker: UIPickerView!
-    var placePickerArray: Array<Any>!
-    var provinceArray: Array<Any>!
-    var cityArray: Array<Any>!
-    var townArray:Array<String>!
-    var selectedArray: Array<Any>!
+    var placePickerArray:[Any]!
+    var provinceArray: [Any]!
+    var cityArray: [Any]!
+    var townArray:[Any]!
+    var selectedArray: [Any]!
     
-    var provinceStr: String?
-    var cityStr: String?
-    var townStr: String?
+    var provinceStr: String!
+    var cityStr: String!
+    var townStr: String!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -86,7 +86,7 @@ class LJPlacePickerView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         self.removeFromSuperview()
         
         if let _delaget = delegate {
-            print("省份为：\(String(describing: provinceStr))")
+            print("省份为：\(provinceStr)")
             _delaget.dismissPickerViewAction(button: sender, provinceStr: self.provinceStr, cityStr: self.cityStr, townStr: self.townStr)
         }
     }
@@ -108,16 +108,20 @@ class LJPlacePickerView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if component == 0 {
-            let provinceDic:Dictionary = Dictionary.init(dictionary: (self.provinceArray!.objectAtIndex(row) as? Dictionary)!)
-            self.provinceStr = provinceDic.object(forKey: provinceDic.allKeys[1]) as? String
-            print("row ====\(row)  省份为：\(String(describing: provinceStr))")
+            
+            let provinceDic:Dictionary = self.provinceArray![row] as! Dictionary<String, String>
+            
+            self.provinceStr = Array(provinceDic.values)[1]
+            print("row ====\(row)  省份为：\(provinceStr)")
             return self.provinceStr
         } else if component == 1 {
-            let cityDic:Dictionary = Dictionary.init(dictionary: (self.cityArray!.objectAtIndex(row))!)
-            self.cityStr = cityDic.object(forKey: cityDic.allKeys[1]) as? String
+            let cityDic:Dictionary = self.cityArray[row] as! Dictionary<String, String>
+            
+            self.cityStr = Array(cityDic.values)[1]
             return cityStr
         } else {
-            self.townStr = self.townArray!.objectAtIndex(row)
+            
+            self.townStr = self.townArray[row] as! String
             return self.townStr
         }
     }
@@ -125,18 +129,19 @@ class LJPlacePickerView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     // 最重要的部分，实现didSelectRow()方法刷新内容，实现三级联动。类似的算法跟上面大同小异，只是调用了pickerView.reload方法，刷新component完成联动。
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if component == 0 {
-            let provinceDic:Dictionary = Dictionary.init(dictionary: (self.provinceArray!.objectAtIndex(row))!)
-            self.provinceStr = provinceDic.object(forKey: provinceDic.allKeys[1]) as? String
+            let provinceDic:NSDictionary = self.provinceArray[row] as! NSDictionary
+            
+            self.provinceStr = provinceDic.allValues[1] as! String
             print("row ====\(row)  省份为：\(String(describing: provinceStr))")
-            self.selectedArray = provinceDic.object(forKey: provinceDic.allKeys[0]) as! Array<Any>
+            self.selectedArray = provinceDic.object(forKey: provinceDic.allKeys[0]) as! [Any]
             if self.selectedArray!.count > 0 {
                 self.cityArray = self.selectedArray
             } else {
                 self.cityArray = nil
             }
             if self.cityArray!.count > 0 {
-                let townDic: Dictionary = Dictionary.init(dictionary: self.cityArray?.objectAtIndex(0))
-                self.townArray = townDic.objectForKey(townDic.allKeys[0]) as! Array<String>
+                let townDic: NSDictionary = self.cityArray[0] as! NSDictionary
+                self.townArray = townDic.object(forKey: townDic.allKeys[0]) as! [Any]
             } else {
                 self.townArray = nil
             }
@@ -147,8 +152,9 @@ class LJPlacePickerView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
         
         if component == 1 {
             if self.selectedArray!.count > 0 && self.cityArray!.count > 0 {
-                let townDic: Dictionary = Dictionary.init(dictionary: self.cityArray?.object(at: row))
-                self.townArray = townDic.object(forKey: townDic.allKeys[0])
+                
+                let townDic: NSDictionary = self.cityArray[row] as! NSDictionary
+                self.townArray = townDic.object(forKey: townDic.allKeys[0]) as! [Any]
             } else {
                 self.townArray = nil
             }
@@ -162,18 +168,19 @@ class LJPlacePickerView: UIView, UIPickerViewDataSource, UIPickerViewDelegate {
     func getPlacePickerData() {
         self.placePickerArray = Array()
         let path: String = Bundle.main.path(forResource: "area.plist", ofType:nil)!
-        self.placePickerArray = Array(contentsOfFile: path)
+        self.placePickerArray = NSArray(contentsOfFile: path) as! Array
         self.provinceArray = self.placePickerArray
         self.selectedArray = self.provinceArray
         
-        if self.selectedArray?.count > 0 {
-            let cityDic: NSDictionary = NSDictionary.init(dictionary: self.selectedArray?.object(at: 0) as! NSDictionary)
-            self.cityArray = cityDic.object(forKey: cityDic.allKeys[0])
+        if self.selectedArray.count > 0 {
+            
+            let cityDic: NSDictionary = self.selectedArray[0] as! NSDictionary
+            self.cityArray = cityDic.object(forKey: cityDic.allKeys[0]) as! [Any]
         }
         
-        if self.cityArray?.count > 0 {
-            let townDic: NSDictionary = NSDictionary.init(dictionary: self.cityArray?.object(at: 0) as! NSDictionary)
-            self.townArray = townDic.object(forKey: townDic.allKeys[0]) as! Array<String>
+        if self.cityArray.count > 0 {
+            let townDic: NSDictionary = self.cityArray[0] as! NSDictionary
+            self.townArray = townDic.object(forKey: townDic.allKeys[0]) as! [Any]
         }
     }
     
