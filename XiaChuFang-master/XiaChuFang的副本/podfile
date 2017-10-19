@@ -1,0 +1,16 @@
+platform :ios, '8.0'
+use_frameworks!
+
+target 'XiaChuFang' do
+    
+    
+target 'XiaChuFangTests' do
+    inherit! :search_paths
+end
+    
+target 'XiaChuFangUITests' do
+        inherit! :search_paths
+end
+pod 'IQKeyboardManagerSwift', '4.0.3'
+
+
