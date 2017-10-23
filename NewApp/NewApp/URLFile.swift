@@ -14,5 +14,4 @@ let url_defImage = "http://img.qdaily.com/article/article_show/20161110122926LJB
 
 // 加载更多数据URL
 let url_qdaily_more = "http://app3.qdaily.com/app3/homes/index/1478819276_1478777270.json?"
-let url_jianshu_more = "http://www.jianshu.com/p/4ea427bab0af"
 

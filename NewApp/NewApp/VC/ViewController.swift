@@ -8,7 +8,7 @@
 
 import UIKit
 import MJRefresh
-import SwiftyJSON
+
 
 fileprivate let cellString = "newCell"
 
@@ -37,23 +37,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         newsTableView.rowHeight = 120;
         newsTableView.register(NewsTableViewCell.self, forCellReuseIdentifier: cellString)
         newsTableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
-            Network.manager.requestGetData(URLString: url_qdaily, successBlcok: { (returnResult) in
-                
-                let info = JSON(returnResult as Any)
-                let banner = info["response"]["feeds"]
+            
+            ViewModel.manager.newNews(URLString: url_qdaily, finishBlock: { (returnResult) in
                 self.newsData.removeAll()
-                for (_, subJSON) in banner {
-                    let banners = subJSON["post"]
-                    
-                    let modelData = self.jsonAddModel(banners: banners)
-                    
-                    self.newsData.append(modelData)
-                }
-                DispatchQueue.main.async {
+                self.newsData = returnResult
+                if !self.newsData.isEmpty {
                     self.newsTableView.reloadData()
                     self.newsTableView.mj_header.endRefreshing()
                 }
-            }, failureBlock: { (error) in
                 self.newsTableView.mj_header.endRefreshing()
             })
         });
@@ -62,48 +53,41 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @objc func refreshMoreData() {
-        Network.manager.requestGetData(URLString: url_qdaily_more, successBlcok: { (response) in
-            let info = JSON(response)
-            let banner = info["response"]["feeds"]
-            for (_, subJSON) in banner {
-                let banners = subJSON["post"]
-
-                let moerModel = self.jsonAddModel(banners: banners)
-
-                self.newsData.append(moerModel)
-            }
-            DispatchQueue.main.async {
+        
+        ViewModel.manager.moreNews(URLString: url_qdaily_more) { (moreNews) in
+            
+            if !moreNews.isEmpty {
+                let mutaleArr = NSMutableArray.init(array: moreNews)
+                mutaleArr.add(self.newsData)
+                self.newsData = mutaleArr as! Array<Model>
+                
                 self.newsTableView.reloadData()
-                self.newsTableView.mj_header.endRefreshing()
                 self.newsTableView.mj_footer.resetNoMoreData()
             }
-        }) { (error) in
-            self.newsTableView.mj_footer.endRefreshing()
+            self.newsTableView.mj_header.endRefreshing()
         }
+        
+//        Network.manager.requestGetData(URLString: url_qdaily_more, successBlcok: { (response) in
+//            let info = JSON(response)
+//            let banner = info["response"]["feeds"]
+//            for (_, subJSON) in banner {
+//                let banners = subJSON["post"]
+//
+//                let moerModel = self.jsonAddModel(banners: banners)
+//
+//                self.newsData.append(moerModel)
+//            }
+//            DispatchQueue.main.async {
+//                self.newsTableView.reloadData()
+//                self.newsTableView.mj_header.endRefreshing()
+//                self.newsTableView.mj_footer.resetNoMoreData()
+//            }
+//        }) { (error) in
+//            self.newsTableView.mj_footer.endRefreshing()
+//        }
     }
     
-    func jsonAddModel(banners: JSON) -> Model {
-        
-        let modelData = Model()
-        
-        var url = banners["appview"].stringValue
-        
-        if url.isEmpty {
-            url = "http://www.jianshu.com/p/4ea427bab0af"
-        }
-        modelData.url = url
-        
-        let title = banners["title"].stringValue
-        modelData.title = title
-        
-        var image = banners["image"].stringValue
-        if image.isEmpty {
-            image = "http://img.qdaily.com/article/article_show/20161110122926LJBdCEmQtRVzhGji.png?imageMogr2/auto-orient/thumbnail/!640x380r/gravity/Center/crop/640x380/quality/85/format/jpg/ignore-error/1"
-        }
-        modelData.image = image
-        return modelData
-    }
-    
+    // MARK: - UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsData.count > 0 ? newsData.count : 0
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20B4F3DD1F9D844D009199B0 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B4F3DC1F9D844D009199B0 /* ViewModel.swift */; };
 		F622CEC28E750EBEC457FE45 /* Pods_NewApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F852255F77584DBB826B33 /* Pods_NewApp.framework */; };
 		F88E28AF0AFE9D0DAF05D7BA /* Pods_NewAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B643E3C5438FAD109A74C790 /* Pods_NewAppUITests.framework */; };
 		FC6CA5333C64170B088140DB /* Pods_NewAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 127C027871A87657B19E1243 /* Pods_NewAppTests.framework */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		127C027871A87657B19E1243 /* Pods_NewAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		20B4F3DC1F9D844D009199B0 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		85F852255F77584DBB826B33 /* Pods_NewApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CC7713805044854F9E699A9 /* Pods-NewAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewAppUITests/Pods-NewAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B3CA9E6FB78944AA72F502DE /* Pods-NewAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewAppTests/Pods-NewAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				FCB625871F93A8CE000788A9 /* VC */,
 				FCB625831F938FFA000788A9 /* Network.swift */,
 				FCB625851F93A6BC000788A9 /* URLFile.swift */,
+				20B4F3DC1F9D844D009199B0 /* ViewModel.swift */,
 				FCB6257D1F937E19000788A9 /* Objc+Header.h */,
 				FCB625801F938609000788A9 /* defaultImage.jpg */,
 				FCB6254F1F936BDE000788A9 /* Main.storyboard */,
@@ -288,6 +291,7 @@
 				TargetAttributes = {
 					FCB625471F936BDE000788A9 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					FCB6255B1F936BDE000788A9 = {
@@ -514,6 +518,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCB6257F1F9380E0000788A9 /* UIImageView+Ex.swift in Sources */,
+				20B4F3DD1F9D844D009199B0 /* ViewModel.swift in Sources */,
 				FCB625821F9387D0000788A9 /* WebViewController.swift in Sources */,
 				FCB6257A1F93733F000788A9 /* Model.swift in Sources */,
 				FCB625861F93A6BC000788A9 /* URLFile.swift in Sources */,
@@ -689,12 +694,14 @@
 			baseConfigurationReference = B4F38A2A7864B2C8735B81C2 /* Pods-NewApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = NewApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lipscai.NewApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -705,6 +712,7 @@
 			baseConfigurationReference = D129B06E09CE12FA0C5759B8 /* Pods-NewApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = NewApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
