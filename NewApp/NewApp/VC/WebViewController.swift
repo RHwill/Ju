@@ -20,7 +20,7 @@ class WebViewController: UIViewController, UIWebViewDelegate {
         
     }
     func webViewDidStartLoad(_ webView: UIWebView) {
-//        self.title = webView.stringByEvaluatingJavaScript(from: "document.title")
+
     }
     func webViewDidFinishLoad(_ webView: UIWebView) {
         self.title = webView.stringByEvaluatingJavaScript(from: "document.title")

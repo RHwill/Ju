@@ -27,7 +27,6 @@
     baseTabBarController *tabBarC = [[baseTabBarController alloc] init];
     self.window.rootViewController = tabBarC;
 
-    
     return YES;
 }
 

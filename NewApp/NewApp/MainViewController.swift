@@ -10,9 +10,7 @@ import UIKit
 
 let cellID = "mainTableViewCellID"
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    
-    
+        
     var mainTableView: UITableView!
     var mainData: Array<String>!
     override func viewDidLoad() {
@@ -44,14 +42,16 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        var preVC: UIViewController!
         switch indexPath.row {
         case 0:
-            self.navigationController?.pushViewController(ViewController(), animated: true)
+            preVC = UINavigationController.init(rootViewController: ViewController())
             break
         default:
             break
-            
         }
+        
+        self.present(preVC, animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {

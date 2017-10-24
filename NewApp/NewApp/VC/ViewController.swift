@@ -66,25 +66,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             self.newsTableView.mj_header.endRefreshing()
         }
-        
-//        Network.manager.requestGetData(URLString: url_qdaily_more, successBlcok: { (response) in
-//            let info = JSON(response)
-//            let banner = info["response"]["feeds"]
-//            for (_, subJSON) in banner {
-//                let banners = subJSON["post"]
-//
-//                let moerModel = self.jsonAddModel(banners: banners)
-//
-//                self.newsData.append(moerModel)
-//            }
-//            DispatchQueue.main.async {
-//                self.newsTableView.reloadData()
-//                self.newsTableView.mj_header.endRefreshing()
-//                self.newsTableView.mj_footer.resetNoMoreData()
-//            }
-//        }) { (error) in
-//            self.newsTableView.mj_footer.endRefreshing()
-//        }
     }
     
     // MARK: - UITableView
