@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		20B4F3DD1F9D844D009199B0 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B4F3DC1F9D844D009199B0 /* ViewModel.swift */; };
+		20EEF5AE1F9F10BA00F1A9C7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EEF5AD1F9F10BA00F1A9C7 /* MainViewController.swift */; };
 		F622CEC28E750EBEC457FE45 /* Pods_NewApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F852255F77584DBB826B33 /* Pods_NewApp.framework */; };
 		F88E28AF0AFE9D0DAF05D7BA /* Pods_NewAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B643E3C5438FAD109A74C790 /* Pods_NewAppUITests.framework */; };
 		FC6CA5333C64170B088140DB /* Pods_NewAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 127C027871A87657B19E1243 /* Pods_NewAppTests.framework */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		127C027871A87657B19E1243 /* Pods_NewAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20B4F3DC1F9D844D009199B0 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		20EEF5AD1F9F10BA00F1A9C7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		85F852255F77584DBB826B33 /* Pods_NewApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CC7713805044854F9E699A9 /* Pods-NewAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewAppUITests/Pods-NewAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B3CA9E6FB78944AA72F502DE /* Pods-NewAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewAppTests/Pods-NewAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				FCB6254B1F936BDE000788A9 /* AppDelegate.swift */,
+				20EEF5AD1F9F10BA00F1A9C7 /* MainViewController.swift */,
 				FCB625891F93A909000788A9 /* Model */,
 				FCB625881F93A8F9000788A9 /* View */,
 				FCB625871F93A8CE000788A9 /* VC */,
@@ -526,6 +529,7 @@
 				FCB6257C1F937910000788A9 /* NewsTableViewCell.swift in Sources */,
 				FCB625841F938FFA000788A9 /* Network.swift in Sources */,
 				FCB6254C1F936BDE000788A9 /* AppDelegate.swift in Sources */,
+				20EEF5AE1F9F10BA00F1A9C7 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
