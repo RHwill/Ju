@@ -54,7 +54,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
     }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
