@@ -45,15 +45,21 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         var preVC: UIViewController!
         switch indexPath.row {
         case 0:
-            preVC = UINavigationController.init(rootViewController: ViewController())
+            preVC = ViewController()
             break
         default:
             break
         }
-        
-        self.present(preVC, animated: true, completion: nil)
+        self.present(UINavigationController.init(rootViewController: preVC), animated: true, completion: {
+            preVC.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "返回", style: .done, target: self, action: #selector(self.backmainVC))
+        })
     }
 
+    @objc func backmainVC() {
+        self.dismiss(animated: true) {}
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
