@@ -31,7 +31,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)setupSubviews{
+-(void)setupSubviews {
     
     [self addChildViewControllerWithClassName:[HomeViewController description] imageName:@"news" title:@"汽车"];
     [self addChildViewControllerWithClassName:[TextAndImageViewController description] imageName:@"text" title:@"搞笑"];
