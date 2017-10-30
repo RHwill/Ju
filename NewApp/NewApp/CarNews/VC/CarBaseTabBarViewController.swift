@@ -13,7 +13,30 @@ class BaseTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.setupSubVC(vcClass: nil, imageName: "news", title: "汽车")
+        self.setupSubVC(vcClass: nil, imageName: "text", title: "搞笑")
+        self.setupSubVC(vcClass: nil, imageName: "live", title: "视频")
+        self.setupSubVC(vcClass: nil, imageName: "mine", title: "我的")
+    }
+    
+    func setupSubVC(vcClass: UIViewController!, imageName: String!, title: String!) {
+        
+        let baseNav = CarBaseNavgationViewController(rootViewController: vcClass)
+        baseNav.title = title
+        baseNav.tabBarItem.image = UIImage(named: imageName)
+
+        baseNav.tabBarItem.selectedImage = UIImage(named: imageName + "_s")?.withRenderingMode(.alwaysOriginal)
+        
+        self.addChildViewController(baseNav)
+        
+        
+//        UIViewController *controller = [[NSClassFromString(className) alloc] init];
+//        baseNavigationController *nav = [[baseNavigationController alloc] initWithRootViewController:controller];
+//        nav.title = title;
+//        nav.tabBarItem.image = [UIImage imageNamed:imgName];
+//        //取消选中变色,使用原图
+//        nav.tabBarItem.selectedImage = [[UIImage imageNamed:[imgName stringByAppendingString:@"_s"]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//        [self addChildViewController:nav];
     }
 
     override func didReceiveMemoryWarning() {
