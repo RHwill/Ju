@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		203B53161FA71612009741AF /* CarBaseTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B53151FA71612009741AF /* CarBaseTabBarViewController.swift */; };
+		203B531B1FA71788009741AF /* CarBaseNavgationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B531A1FA71788009741AF /* CarBaseNavgationViewController.swift */; };
 		20B4F3DD1F9D844D009199B0 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B4F3DC1F9D844D009199B0 /* ViewModel.swift */; };
 		20EEF5AE1F9F10BA00F1A9C7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EEF5AD1F9F10BA00F1A9C7 /* MainViewController.swift */; };
 		F622CEC28E750EBEC457FE45 /* Pods_NewApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F852255F77584DBB826B33 /* Pods_NewApp.framework */; };
@@ -46,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		127C027871A87657B19E1243 /* Pods_NewAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		203B53151FA71612009741AF /* CarBaseTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarBaseTabBarViewController.swift; sourceTree = "<group>"; };
+		203B531A1FA71788009741AF /* CarBaseNavgationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarBaseNavgationViewController.swift; sourceTree = "<group>"; };
 		20B4F3DC1F9D844D009199B0 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		20EEF5AD1F9F10BA00F1A9C7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		85F852255F77584DBB826B33 /* Pods_NewApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +124,44 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		203B53171FA71630009741AF /* NewAPP */ = {
+			isa = PBXGroup;
+			children = (
+				FCB625801F938609000788A9 /* defaultImage.jpg */,
+				FCB625851F93A6BC000788A9 /* URLFile.swift */,
+				203B531C1FA71806009741AF /* ViewModel */,
+				FCB625891F93A909000788A9 /* Model */,
+				FCB625881F93A8F9000788A9 /* View */,
+				FCB625871F93A8CE000788A9 /* VC */,
+			);
+			path = NewAPP;
+			sourceTree = "<group>";
+		};
+		203B53181FA716FC009741AF /* CarNews */ = {
+			isa = PBXGroup;
+			children = (
+				203B53191FA71716009741AF /* VC */,
+			);
+			path = CarNews;
+			sourceTree = "<group>";
+		};
+		203B53191FA71716009741AF /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				203B53151FA71612009741AF /* CarBaseTabBarViewController.swift */,
+				203B531A1FA71788009741AF /* CarBaseNavgationViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		203B531C1FA71806009741AF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				20B4F3DC1F9D844D009199B0 /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		D25514B9E6A856B63D67139A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,14 +199,10 @@
 			children = (
 				FCB6254B1F936BDE000788A9 /* AppDelegate.swift */,
 				20EEF5AD1F9F10BA00F1A9C7 /* MainViewController.swift */,
-				FCB625891F93A909000788A9 /* Model */,
-				FCB625881F93A8F9000788A9 /* View */,
-				FCB625871F93A8CE000788A9 /* VC */,
+				203B53181FA716FC009741AF /* CarNews */,
+				203B53171FA71630009741AF /* NewAPP */,
 				FCB625831F938FFA000788A9 /* Network.swift */,
-				FCB625851F93A6BC000788A9 /* URLFile.swift */,
-				20B4F3DC1F9D844D009199B0 /* ViewModel.swift */,
 				FCB6257D1F937E19000788A9 /* Objc+Header.h */,
-				FCB625801F938609000788A9 /* defaultImage.jpg */,
 				FCB6254F1F936BDE000788A9 /* Main.storyboard */,
 				FCB625521F936BDE000788A9 /* Assets.xcassets */,
 				FCB625541F936BDE000788A9 /* LaunchScreen.storyboard */,
@@ -526,7 +564,9 @@
 				FCB6257A1F93733F000788A9 /* Model.swift in Sources */,
 				FCB625861F93A6BC000788A9 /* URLFile.swift in Sources */,
 				FCB6254E1F936BDE000788A9 /* ViewController.swift in Sources */,
+				203B531B1FA71788009741AF /* CarBaseNavgationViewController.swift in Sources */,
 				FCB6257C1F937910000788A9 /* NewsTableViewCell.swift in Sources */,
+				203B53161FA71612009741AF /* CarBaseTabBarViewController.swift in Sources */,
 				FCB625841F938FFA000788A9 /* Network.swift in Sources */,
 				FCB6254C1F936BDE000788A9 /* AppDelegate.swift in Sources */,
 				20EEF5AE1F9F10BA00F1A9C7 /* MainViewController.swift in Sources */,
@@ -705,6 +745,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lipscai.NewApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -723,6 +764,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lipscai.NewApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

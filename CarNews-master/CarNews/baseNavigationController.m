@@ -38,7 +38,7 @@
     color[NSForegroundColorAttributeName] = [UIColor whiteColor];
     [[UINavigationBar appearance] setTitleTextAttributes:color];
     
-    // 拿到整个导航控制器的外观
+    // 拿到整个导航控制器的外观.
     UIBarButtonItem * item = [UIBarButtonItem appearance];
     item.tintColor = [UIColor whiteColor];
     // 设置字典的字体大小

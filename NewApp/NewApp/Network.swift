@@ -17,7 +17,7 @@ class Network: NSObject {
         
     }
     
-    func requestGetData(URLString:String, successBlcok:@escaping (_ response:Any) -> Void, failureBlock:@escaping (_ error:Error) -> Void) {
+    func GETData(URLString:String, successBlcok:@escaping (_ response:Any) -> Void, failureBlock:@escaping (_ error:Error) -> Void) {
         Alamofire.request(URLString).responseJSON { (returnResult) in
             switch returnResult.result {
             case .success(let value):

@@ -16,7 +16,7 @@ class ViewModel: NSObject {
     fileprivate override init() {}
     
     func newNews(URLString:String!, finishBlock:@escaping (Array<Model>) -> Void) {
-        Network.manager.requestGetData(URLString: url_qdaily, successBlcok: { (returnResult) in
+        Network.manager.GETData(URLString: url_qdaily, successBlcok: { (returnResult) in
             
             let newsData = self.jsonAddModel(returnResult: returnResult)
             
@@ -29,7 +29,7 @@ class ViewModel: NSObject {
     }
     
     func moreNews(URLString: String!, finishBlock:@escaping (Array<Model>) -> Void) {
-        Network.manager.requestGetData(URLString: url_qdaily_more, successBlcok: { (response) in
+        Network.manager.GETData(URLString: url_qdaily_more, successBlcok: { (response) in
             
             let moreNewsArr = self.jsonAddModel(returnResult: response)
             
