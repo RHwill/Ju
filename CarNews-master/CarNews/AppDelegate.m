@@ -19,6 +19,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    NSString *domain = @"gengxinshibai";
+    NSInteger errorType =  1000;
+    NSError *err = [[NSError alloc] initWithDomain:domain code:errorType userInfo:@{NSLocalizedDescriptionKey : domain}];
+    
+    NSLog(@"%@ - %ld", err.domain, (long)err.code);
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
