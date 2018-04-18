@@ -32,11 +32,13 @@ NSString *const hj_cellID = @"HJ_CellID";
     customLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     // 设置行与行之间的间距最小距离
     customLayout.minimumLineSpacing = 10;
+    // 设置列与列之间的间距最小距离
+    customLayout.minimumInteritemSpacing = 10;
+    // 这个属性可以设置分区的偏移量
+    customLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
     // 设置每个item的大小
-    customLayout.itemSize = CGSizeMake(100, 160);
-    
-    
-    
+    customLayout.itemSize = CGSizeMake(110, 160);
+
     _hj_collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:customLayout];
     _hj_collectionView.dataSource = self;
     _hj_collectionView.delegate = self;
@@ -46,12 +48,14 @@ NSString *const hj_cellID = @"HJ_CellID";
 
 #pragma mark- UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 3;
+    return 60;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     _hjCell = [collectionView dequeueReusableCellWithReuseIdentifier:hj_cellID forIndexPath:indexPath];
-    
+    _hjCell.backgroundColor = [UIColor redColor];
+    _hjCell.layer.cornerRadius = 5;
+    _hjCell.layer.masksToBounds = YES;
     return _hjCell;
 }
 
