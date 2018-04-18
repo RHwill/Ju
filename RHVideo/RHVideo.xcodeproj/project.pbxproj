@@ -18,6 +18,7 @@
 		20741FEA208716BD0058E139 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20741FE8208716BD0058E139 /* LaunchScreen.storyboard */; };
 		20741FED208716BD0058E139 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 20741FEC208716BD0058E139 /* main.m */; };
 		20741FF7208716BE0058E139 /* RHVideoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 20741FF6208716BE0058E139 /* RHVideoTests.m */; };
+		20C05FE02087747200EE82B9 /* HJCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C05FDF2087747200EE82B9 /* HJCollectionViewCell.m */; };
 		59F065B45900C9D629B137B9 /* libPods-RHVideoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0843D07A4135E63995372D96 /* libPods-RHVideoTests.a */; };
 		C63C1C31D4C0848D8708A62A /* libPods-RHVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7BAB59F9AE8237BAE222C6 /* libPods-RHVideo.a */; };
 /* End PBXBuildFile section */
@@ -57,6 +58,8 @@
 		20741FF2208716BE0058E139 /* RHVideoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RHVideoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		20741FF6208716BE0058E139 /* RHVideoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RHVideoTests.m; sourceTree = "<group>"; };
 		20741FF8208716BE0058E139 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20C05FDE2087747200EE82B9 /* HJCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HJCollectionViewCell.h; sourceTree = "<group>"; };
+		20C05FDF2087747200EE82B9 /* HJCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HJCollectionViewCell.m; sourceTree = "<group>"; };
 		6304670AEB0C6CCF3E3A3AAD /* Pods-RHVideoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RHVideoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RHVideoTests/Pods-RHVideoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8EFA81C379958075360AFD09 /* Pods-RHVideoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RHVideoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RHVideoTests/Pods-RHVideoTests.release.xcconfig"; sourceTree = "<group>"; };
 		C17ED82136F7F94E54B3E3BE /* Pods-RHVideo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RHVideo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RHVideo/Pods-RHVideo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -101,6 +104,8 @@
 			children = (
 				205D0CB320872E58006D7892 /* HanJuViewController.h */,
 				205D0CB420872E58006D7892 /* HanJuViewController.m */,
+				20C05FDE2087747200EE82B9 /* HJCollectionViewCell.h */,
+				20C05FDF2087747200EE82B9 /* HJCollectionViewCell.m */,
 			);
 			path = hanJu;
 			sourceTree = "<group>";
@@ -318,6 +323,7 @@
 			files = (
 				20741FE22087168D0058E139 /* ViewController.m in Sources */,
 				205D0CB520872E58006D7892 /* HanJuViewController.m in Sources */,
+				20C05FE02087747200EE82B9 /* HJCollectionViewCell.m in Sources */,
 				205D0CB220872DD5006D7892 /* MainViewController.m in Sources */,
 				205D0CAC20872C6D006D7892 /* MainTabBarViewController.m in Sources */,
 				20741FED208716BD0058E139 /* main.m in Sources */,
