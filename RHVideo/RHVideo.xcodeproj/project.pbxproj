@@ -189,6 +189,8 @@
 				20741FD62087168D0058E139 /* Sources */,
 				20741FD72087168D0058E139 /* Frameworks */,
 				20741FD82087168D0058E139 /* Resources */,
+				2489CA4BB58DF20E2F7D8FD5 /* [CP] Embed Pods Frameworks */,
+				EE67D19712B45562D982880C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -207,6 +209,8 @@
 				20741FEE208716BE0058E139 /* Sources */,
 				20741FEF208716BE0058E139 /* Frameworks */,
 				20741FF0208716BE0058E139 /* Resources */,
+				FAD9D86A7506C5FEF937AD0D /* [CP] Embed Pods Frameworks */,
+				0077F1D9A2FA9F123F1DB105 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -278,6 +282,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0077F1D9A2FA9F123F1DB105 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RHVideoTests/Pods-RHVideoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2489CA4BB58DF20E2F7D8FD5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RHVideo/Pods-RHVideo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CC3153338FE20DC85827FFFC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -312,6 +346,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE67D19712B45562D982880C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RHVideo/Pods-RHVideo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FAD9D86A7506C5FEF937AD0D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RHVideoTests/Pods-RHVideoTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -485,6 +549,7 @@
 			baseConfigurationReference = C17ED82136F7F94E54B3E3BE /* Pods-RHVideo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 49GPL5F9X4;
 				INFOPLIST_FILE = RHVideo/Info.plist;
@@ -501,6 +566,7 @@
 			baseConfigurationReference = F78B2746678A9F2E9017896B /* Pods-RHVideo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 49GPL5F9X4;
 				INFOPLIST_FILE = RHVideo/Info.plist;
