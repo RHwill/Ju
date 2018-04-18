@@ -1,0 +1,13 @@
+#platform :ios, '8.0'
+
+target 'RHVideo' do
+
+pod 'AFNetworking'
+pod 'YYModel'
+pod 'YYCache'
+
+end
+
+target 'RHVideoTests' do
+
+end
