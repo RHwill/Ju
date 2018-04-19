@@ -22,6 +22,8 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    self.navigationBar.translucent = NO;
+    self.navigationBar.barTintColor = [UIColor grayColor];
 }
 
 /*

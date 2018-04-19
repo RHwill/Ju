@@ -10,4 +10,12 @@
 
 @interface HJCollectionViewCell : UICollectionViewCell
 
+@property (nonatomic, strong) UIImageView *photoImageView;
+
+@property (nonatomic, strong) UILabel *nameLabel;
+
+@property (nonatomic, strong) UILabel *rankLabel;
+
+@property (nonatomic, strong) UILabel *countLabel;
+
 @end

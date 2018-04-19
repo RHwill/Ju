@@ -5,6 +5,7 @@ target 'RHVideo' do
 pod 'AFNetworking'
 pod 'YYModel'
 pod 'YYCache'
+pod 'Masonry'
 
 end
 

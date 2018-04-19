@@ -8,38 +8,40 @@
 
 #import "HanJuViewController.h"
 #import "HJCollectionViewCell.h"
+#import "HanJuVM.h"
 
 NSString *const hj_cellID = @"HJ_CellID";
 
-@interface HanJuViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface HanJuViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UICollectionView *hj_collectionView;
 @property (nonatomic, strong) HJCollectionViewCell *hjCell;
-
+@property (nonatomic, strong) NSArray *collectionData;
 @end
 
 @implementation HanJuViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     [self setupUI];
 }
 
 - (void)setupUI {
     UICollectionViewFlowLayout *customLayout = [[UICollectionViewFlowLayout alloc] init];
     // scroll 滚动方向
-    customLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+//    customLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     // 设置行与行之间的间距最小距离
-    customLayout.minimumLineSpacing = 10;
+//    customLayout.minimumLineSpacing = 10;
     // 设置列与列之间的间距最小距离
-    customLayout.minimumInteritemSpacing = 10;
+//    customLayout.minimumInteritemSpacing = 5;
     // 这个属性可以设置分区的偏移量
     customLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
     // 设置每个item的大小
-    customLayout.itemSize = CGSizeMake(110, 160);
+    customLayout.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width / 3.0 - 15.0, [UIScreen mainScreen].bounds.size.height / 3.0 - self.tabBarController.tabBar.frame.size.height);
 
     _hj_collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:customLayout];
+    _hj_collectionView.backgroundColor = [UIColor whiteColor];
     _hj_collectionView.dataSource = self;
     _hj_collectionView.delegate = self;
     [self.view addSubview:_hj_collectionView];
@@ -56,13 +58,15 @@ NSString *const hj_cellID = @"HJ_CellID";
     _hjCell.backgroundColor = [UIColor redColor];
     _hjCell.layer.cornerRadius = 5;
     _hjCell.layer.masksToBounds = YES;
+    
     return _hjCell;
 }
 
 #pragma mark - UICollectionViewDelegate
-
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    NSLog(@"didSelect %ld", (long)indexPath.row);
+    HanJuVM *hanj = [HanJuVM new];
+//    [hanj hanJu];
 }
 
 
