@@ -23,7 +23,13 @@ NSString *const hj_cellID = @"HJ_CellID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    HanJuVM *hanjuVM = [[HanJuVM alloc] init];
+    [hanjuVM hanJuAllDataSource:^(NSArray *dataSource) {
+        self.collectionData = dataSource;
+        [self.hj_collectionView reloadData];
+    } error:^(NSError *error) {
+        
+    }];
     [self setupUI];
 }
 
@@ -50,14 +56,13 @@ NSString *const hj_cellID = @"HJ_CellID";
 
 #pragma mark- UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 60;
+    NSLog(@"___%lu",(unsigned long)self.collectionData.count);
+    return self.collectionData.count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     _hjCell = [collectionView dequeueReusableCellWithReuseIdentifier:hj_cellID forIndexPath:indexPath];
-    _hjCell.backgroundColor = [UIColor redColor];
-    _hjCell.layer.cornerRadius = 5;
-    _hjCell.layer.masksToBounds = YES;
+    [_hjCell setModel:self.collectionData[indexPath.row]];
     
     return _hjCell;
 }
@@ -65,8 +70,7 @@ NSString *const hj_cellID = @"HJ_CellID";
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"didSelect %ld", (long)indexPath.row);
-    HanJuVM *hanj = [HanJuVM new];
-//    [hanj hanJu];
+
 }
 
 

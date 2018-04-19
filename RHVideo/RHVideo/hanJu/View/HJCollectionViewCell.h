@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class HanJuModel;
 @interface HJCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) UIImageView *photoImageView;
@@ -17,5 +18,7 @@
 @property (nonatomic, strong) UILabel *rankLabel;
 
 @property (nonatomic, strong) UILabel *countLabel;
+
+- (void)setModel:(HanJuModel *)model;
 
 @end

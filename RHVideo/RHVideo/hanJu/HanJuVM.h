@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface HanJuVM : NSObject
-- (void)hanJu;
+
+- (void)hanJuAllDataSource:(void(^)(NSArray *dataSource))dataSource error:(void(^)(NSError *error))error;
+
 @end

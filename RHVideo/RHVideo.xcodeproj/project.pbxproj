@@ -26,6 +26,8 @@
 		20C05FF22088A08E00EE82B9 /* HanJuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C05FF12088A08E00EE82B9 /* HanJuModel.m */; };
 		59F065B45900C9D629B137B9 /* libPods-RHVideoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0843D07A4135E63995372D96 /* libPods-RHVideoTests.a */; };
 		C63C1C31D4C0848D8708A62A /* libPods-RHVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7BAB59F9AE8237BAE222C6 /* libPods-RHVideo.a */; };
+		FC8697A82088D213008316F0 /* UIView+RH.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8697A72088D213008316F0 /* UIView+RH.m */; };
+		FC8697AB2088D7A4008316F0 /* UIImageView+RH.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8697AA2088D7A4008316F0 /* UIImageView+RH.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,10 @@
 		8EFA81C379958075360AFD09 /* Pods-RHVideoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RHVideoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RHVideoTests/Pods-RHVideoTests.release.xcconfig"; sourceTree = "<group>"; };
 		C17ED82136F7F94E54B3E3BE /* Pods-RHVideo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RHVideo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RHVideo/Pods-RHVideo.debug.xcconfig"; sourceTree = "<group>"; };
 		F78B2746678A9F2E9017896B /* Pods-RHVideo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RHVideo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RHVideo/Pods-RHVideo.release.xcconfig"; sourceTree = "<group>"; };
+		FC8697A62088D213008316F0 /* UIView+RH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+RH.h"; sourceTree = "<group>"; };
+		FC8697A72088D213008316F0 /* UIView+RH.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+RH.m"; sourceTree = "<group>"; };
+		FC8697A92088D7A4008316F0 /* UIImageView+RH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+RH.h"; sourceTree = "<group>"; };
+		FC8697AA2088D7A4008316F0 /* UIImageView+RH.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+RH.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,10 +125,9 @@
 			children = (
 				205D0CB320872E58006D7892 /* HanJuViewController.h */,
 				205D0CB420872E58006D7892 /* HanJuViewController.m */,
-				20C05FF02088A08E00EE82B9 /* HanJuModel.h */,
-				20C05FF12088A08E00EE82B9 /* HanJuModel.m */,
 				20C05FED2088905D00EE82B9 /* HanJuVM.h */,
 				20C05FEE2088905D00EE82B9 /* HanJuVM.m */,
+				FC8697A52088C70E008316F0 /* Model */,
 				20C05FE12088720A00EE82B9 /* View */,
 			);
 			path = hanJu;
@@ -192,6 +197,10 @@
 			children = (
 				20C05FE32088737700EE82B9 /* UIImage+RoundedCorner.h */,
 				20C05FE42088737700EE82B9 /* UIImage+RoundedCorner.m */,
+				FC8697A92088D7A4008316F0 /* UIImageView+RH.h */,
+				FC8697AA2088D7A4008316F0 /* UIImageView+RH.m */,
+				FC8697A62088D213008316F0 /* UIView+RH.h */,
+				FC8697A72088D213008316F0 /* UIView+RH.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -227,6 +236,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FC8697A52088C70E008316F0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				20C05FF02088A08E00EE82B9 /* HanJuModel.h */,
+				20C05FF12088A08E00EE82B9 /* HanJuModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -238,6 +256,8 @@
 				20741FD62087168D0058E139 /* Sources */,
 				20741FD72087168D0058E139 /* Frameworks */,
 				20741FD82087168D0058E139 /* Resources */,
+				711977F5028239170C06E393 /* [CP] Embed Pods Frameworks */,
+				3C731C34DF2F6D1B9BBBE43D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -256,6 +276,8 @@
 				20741FEE208716BE0058E139 /* Sources */,
 				20741FEF208716BE0058E139 /* Frameworks */,
 				20741FF0208716BE0058E139 /* Resources */,
+				083322D4A0FD546F813AAEBA /* [CP] Embed Pods Frameworks */,
+				688B683605986290A0AF39DA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -327,6 +349,69 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		083322D4A0FD546F813AAEBA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RHVideoTests/Pods-RHVideoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C731C34DF2F6D1B9BBBE43D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RHVideo/Pods-RHVideo-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RHVideo/Pods-RHVideo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		688B683605986290A0AF39DA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RHVideoTests/Pods-RHVideoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		711977F5028239170C06E393 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RHVideo/Pods-RHVideo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CC3153338FE20DC85827FFFC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -372,6 +457,8 @@
 			files = (
 				20C05FEC20888BA200EE82B9 /* RHResponse.m in Sources */,
 				20C05FE52088737700EE82B9 /* UIImage+RoundedCorner.m in Sources */,
+				FC8697AB2088D7A4008316F0 /* UIImageView+RH.m in Sources */,
+				FC8697A82088D213008316F0 /* UIView+RH.m in Sources */,
 				20C05FF22088A08E00EE82B9 /* HanJuModel.m in Sources */,
 				20741FE22087168D0058E139 /* ViewController.m in Sources */,
 				205D0CB520872E58006D7892 /* HanJuViewController.m in Sources */,
