@@ -13,7 +13,7 @@
 
 + (instancetype)manager;
 
-- (void)GET:(NSString *)URLString parameters:(NSDictionary *)parmeters finishBlock:(void(^)(RHResponse *response))finishBlock;
-- (void)POST:(NSString *)URLString parameters:(NSDictionary *)parmeters finishBlock:(void(^)(RHResponse *response))finishBlock;
+- (void)GET:(NSString *)URLString headers:(NSDictionary *)headers parameters:(NSDictionary *)parmeters finishBlock:(void(^)(RHResponse *response))finishBlock;
+- (void)POST:(NSString *)URLString headers:(NSDictionary *)headers parameters:(NSDictionary *)parmeters finishBlock:(void(^)(RHResponse *response))finishBlock;
 
 @end

@@ -26,18 +26,25 @@
     return rhNetworking;
 }
 
-- (void)GET:(NSString *)URLString parameters:(NSDictionary *)parmeters finishBlock:(void(^)(RHResponse *response))finishBlock {
-    [self httpMethod:@"GET" URLString:URLString parameters:parmeters finishBlock:finishBlock];
+- (void)GET:(NSString *)URLString headers:(NSDictionary *)headers parameters:(NSDictionary *)parmeters finishBlock:(void(^)(RHResponse *response))finishBlock {
+    [self httpMethod:@"GET" URLString:URLString headers:headers parameters:parmeters finishBlock:finishBlock];
 }
 
-- (void)POST:(NSString *)URLString parameters:(NSDictionary *)parmeters finishBlock:(void(^)(RHResponse *response))finishBlock {
-    [self httpMethod:@"POST" URLString:URLString parameters:parmeters finishBlock:finishBlock];
+- (void)POST:(NSString *)URLString headers:(NSDictionary *)headers parameters:(NSDictionary *)parmeters finishBlock:(void(^)(RHResponse *response))finishBlock {
+    [self httpMethod:@"POST" URLString:URLString headers:headers parameters:parmeters finishBlock:finishBlock];
 }
 
 - (void)httpMethod:(NSString *)httpMethod
          URLString:(NSString *)URLString
+           headers:(NSDictionary *)headers
         parameters:(NSDictionary *)parmeters
        finishBlock:(void(^)(RHResponse *response))finishBlock {
+    
+    if (headers.count > 0) {
+        for (NSString *key in headers.allKeys) {
+            [self.manager.requestSerializer setValue:headers[key] forHTTPHeaderField:key];
+        }
+    }
     
     if ([httpMethod isEqualToString:@"GET"]) {
         [self.manager GET:URLString parameters:parmeters progress:^(NSProgress * _Nonnull downloadProgress) {

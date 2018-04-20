@@ -9,6 +9,7 @@
 #import "HanJuViewController.h"
 #import "HJCollectionViewCell.h"
 #import "HanJuVM.h"
+#import <MJRefresh.h>
 
 NSString *const hj_cellID = @"HJ_CellID";
 
@@ -23,13 +24,7 @@ NSString *const hj_cellID = @"HJ_CellID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    HanJuVM *hanjuVM = [[HanJuVM alloc] init];
-    [hanjuVM hanJuAllDataSource:^(NSArray *dataSource) {
-        self.collectionData = dataSource;
-        [self.hj_collectionView reloadData];
-    } error:^(NSError *error) {
-        
-    }];
+    [self setupData];
     [self setupUI];
 }
 
@@ -50,13 +45,29 @@ NSString *const hj_cellID = @"HJ_CellID";
     _hj_collectionView.backgroundColor = [UIColor whiteColor];
     _hj_collectionView.dataSource = self;
     _hj_collectionView.delegate = self;
+    _hj_collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        // 马上进入刷新状态
+        [self.hj_collectionView.mj_header beginRefreshing];
+        [self setupData];
+        [self.hj_collectionView.mj_header endRefreshing];
+    }];
     [self.view addSubview:_hj_collectionView];
     [_hj_collectionView registerClass:[HJCollectionViewCell class] forCellWithReuseIdentifier:hj_cellID];
 }
 
+- (void)setupData {
+    HanJuVM *hanjuVM = [[HanJuVM alloc] init];
+    [hanjuVM hanJuAllDataSource:^(NSArray *dataSource) {
+        self.collectionData = dataSource;
+//        [self.hj_collectionView.mj_header endRefreshing];
+        [self.hj_collectionView reloadData];
+    } error:^(NSError *error) {
+//        [self.hj_collectionView.mj_header endRefreshing];
+    }];
+}
+
 #pragma mark- UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSLog(@"___%lu",(unsigned long)self.collectionData.count);
     return self.collectionData.count;
 }
 
