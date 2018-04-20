@@ -123,10 +123,9 @@
 		205D0CBA208731DB006D7892 /* hanJu */ = {
 			isa = PBXGroup;
 			children = (
-				205D0CB320872E58006D7892 /* HanJuViewController.h */,
-				205D0CB420872E58006D7892 /* HanJuViewController.m */,
 				20C05FED2088905D00EE82B9 /* HanJuVM.h */,
 				20C05FEE2088905D00EE82B9 /* HanJuVM.m */,
+				20C05FF32089E69C00EE82B9 /* Controller */,
 				FC8697A52088C70E008316F0 /* Model */,
 				20C05FE12088720A00EE82B9 /* View */,
 			);
@@ -216,6 +215,15 @@
 			path = NetWorking;
 			sourceTree = "<group>";
 		};
+		20C05FF32089E69C00EE82B9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				205D0CB320872E58006D7892 /* HanJuViewController.h */,
+				205D0CB420872E58006D7892 /* HanJuViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		28E1627C50541E1295AEE7E7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,7 +264,6 @@
 				20741FD62087168D0058E139 /* Sources */,
 				20741FD72087168D0058E139 /* Frameworks */,
 				20741FD82087168D0058E139 /* Resources */,
-				711977F5028239170C06E393 /* [CP] Embed Pods Frameworks */,
 				3C731C34DF2F6D1B9BBBE43D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -276,8 +283,6 @@
 				20741FEE208716BE0058E139 /* Sources */,
 				20741FEF208716BE0058E139 /* Frameworks */,
 				20741FF0208716BE0058E139 /* Resources */,
-				083322D4A0FD546F813AAEBA /* [CP] Embed Pods Frameworks */,
-				688B683605986290A0AF39DA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -349,21 +354,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		083322D4A0FD546F813AAEBA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RHVideoTests/Pods-RHVideoTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		3C731C34DF2F6D1B9BBBE43D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -375,41 +365,11 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RHVideo/Pods-RHVideo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		688B683605986290A0AF39DA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RHVideoTests/Pods-RHVideoTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		711977F5028239170C06E393 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RHVideo/Pods-RHVideo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CC3153338FE20DC85827FFFC /* [CP] Check Pods Manifest.lock */ = {

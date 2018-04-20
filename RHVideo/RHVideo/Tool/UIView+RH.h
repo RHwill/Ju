@@ -10,4 +10,7 @@
 
 @interface UIView (RH)
 
+- (UIView *)rh_addRounderCornerWithRadius:(CGFloat)radius size:(CGSize)size;
+
+
 @end

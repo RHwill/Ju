@@ -20,8 +20,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    [UITabBar appearance].barTintColor = [UIColor magentaColor];
-    
+    [UITabBar appearance].barTintColor = [UIColor blueColor];
+    [UITabBar appearance].tintColor = [UIColor whiteColor];
     [self addChildViewControllers];
     
 }

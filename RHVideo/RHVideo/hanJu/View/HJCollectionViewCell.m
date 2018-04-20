@@ -9,6 +9,7 @@
 #import "HJCollectionViewCell.h"
 #import "HanJuModel.h"
 #import "UIImageView+RH.h"
+#import "UIView+RH.h"
 #import <Masonry.h>
 
 @implementation HJCollectionViewCell
@@ -40,6 +41,19 @@
         make.left.right.top.mas_equalTo(self.contentView).offset(0);
         make.bottom.mas_equalTo(self.contentView).inset(25);
     }];
+
+    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 25 - 25, self.frame.size.width, 25)];
+    [self.contentView addSubview:backgroundView];
+    
+    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+    gradientLayer.colors = @[(__bridge id)[UIColor colorWithWhite:0.0 alpha:0.6].CGColor, (__bridge id)[UIColor colorWithWhite:0.0 alpha:0.1].CGColor, (__bridge id)[UIColor clearColor].CGColor];
+    gradientLayer.locations = @[@0.1, @0.7, @1.0];
+    gradientLayer.startPoint = CGPointMake(0, 1.0);
+    gradientLayer.endPoint = CGPointMake(0.05, 0);
+    gradientLayer.frame = backgroundView.bounds;
+    gradientLayer.cornerRadius = 4.0;
+    gradientLayer.masksToBounds = YES;
+    [backgroundView.layer addSublayer:gradientLayer];
     
     _rankLabel = [UILabel new];
     _rankLabel.text = @"";

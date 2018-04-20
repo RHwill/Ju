@@ -7,7 +7,6 @@
 //
 
 #import "UIImage+RoundedCorner.h"
-#import <UIImage+AFNetworking.h>
 
 @implementation UIImage (RoundedCorner)
 

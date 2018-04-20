@@ -10,6 +10,7 @@
 #import "HJCollectionViewCell.h"
 #import "HanJuVM.h"
 #import <MJRefresh.h>
+#import <MBProgressHUD.h>
 
 NSString *const hj_cellID = @"HJ_CellID";
 
@@ -49,7 +50,6 @@ NSString *const hj_cellID = @"HJ_CellID";
         // 马上进入刷新状态
         [self.hj_collectionView.mj_header beginRefreshing];
         [self setupData];
-        [self.hj_collectionView.mj_header endRefreshing];
     }];
     [self.view addSubview:_hj_collectionView];
     [_hj_collectionView registerClass:[HJCollectionViewCell class] forCellWithReuseIdentifier:hj_cellID];
@@ -58,11 +58,18 @@ NSString *const hj_cellID = @"HJ_CellID";
 - (void)setupData {
     HanJuVM *hanjuVM = [[HanJuVM alloc] init];
     [hanjuVM hanJuAllDataSource:^(NSArray *dataSource) {
-        self.collectionData = dataSource;
-//        [self.hj_collectionView.mj_header endRefreshing];
-        [self.hj_collectionView reloadData];
+        [self.hj_collectionView.mj_header endRefreshing];
+        if (dataSource.count > 0) {
+            self.collectionData = dataSource;
+            [self.hj_collectionView reloadData];
+            return;
+        }
+        // 错误处理；
+        
+        
     } error:^(NSError *error) {
-//        [self.hj_collectionView.mj_header endRefreshing];
+//        [MBProgressHUD ]
+        [self.hj_collectionView.mj_header endRefreshing];
     }];
 }
 

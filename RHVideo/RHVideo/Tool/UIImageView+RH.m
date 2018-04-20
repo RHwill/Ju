@@ -14,7 +14,9 @@
 
 - (void)imageWithURL:(NSString *)url radius:(CGFloat)radius {
     [self sd_setImageWithURL:[NSURL URLWithString:url] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-        self.image = [image imageAddCornerWithRadius:radius size:self.frame.size];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.image = [image imageAddCornerWithRadius:radius size:self.frame.size];
+        });
     }];
 }
 
