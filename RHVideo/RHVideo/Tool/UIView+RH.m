@@ -7,6 +7,7 @@
 //
 
 #import "UIView+RH.h"
+#import <MBProgressHUD.h>
 
 @implementation UIView (RH)
 
@@ -31,6 +32,22 @@
     [imageView setImage:image];
     [self addSubview:imageView];
     return imageView;
+}
+
+- (void)rh_showText:(NSString *)text {
+    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self];
+    [self addSubview:hud];
+    hud.label.text = text;
+    hud.mode = MBProgressHUDModeText;
+    [hud showAnimated:YES];
+    [hud hideAnimated:YES afterDelay:2.0];
+}
+
+- (void)rh_showLoadingText:(NSString *)text {
+    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self];
+    [self addSubview:hud];
+    hud.label.text = text;
+    [hud showAnimated:YES];
 }
 
 @end

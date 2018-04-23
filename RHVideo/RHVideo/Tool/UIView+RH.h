@@ -12,5 +12,6 @@
 
 - (UIView *)rh_addRounderCornerWithRadius:(CGFloat)radius size:(CGSize)size;
 
+- (void)rh_showText:(NSString *)text;
 
 @end

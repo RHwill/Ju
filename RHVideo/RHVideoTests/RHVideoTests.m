@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "HanJuViewController.h"
 
 @interface RHVideoTests : XCTestCase
 

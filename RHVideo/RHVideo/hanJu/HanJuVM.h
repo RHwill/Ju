@@ -10,6 +10,8 @@
 
 @interface HanJuVM : NSObject
 
-- (void)hanJuAllDataSource:(void(^)(NSArray *dataSource))dataSource error:(void(^)(NSError *error))error;
+- (void)hj_loadDataSource:(void(^)(NSArray *dataSource))dataSource error:(void(^)(NSError *error))error;
+
+- (void)hj_loadMoreDataSource:(void(^)(NSArray *dataSource))dataSource error:(void(^)(NSError *error))error;
 
 @end

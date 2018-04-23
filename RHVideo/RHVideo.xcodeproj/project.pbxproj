@@ -24,6 +24,7 @@
 		20C05FEC20888BA200EE82B9 /* RHResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C05FEB20888BA200EE82B9 /* RHResponse.m */; };
 		20C05FEF2088905D00EE82B9 /* HanJuVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C05FEE2088905D00EE82B9 /* HanJuVM.m */; };
 		20C05FF22088A08E00EE82B9 /* HanJuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C05FF12088A08E00EE82B9 /* HanJuModel.m */; };
+		20C05FF6208DB4AA00EE82B9 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C05FF5208DB4AA00EE82B9 /* DetailsViewController.m */; };
 		59F065B45900C9D629B137B9 /* libPods-RHVideoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0843D07A4135E63995372D96 /* libPods-RHVideoTests.a */; };
 		C63C1C31D4C0848D8708A62A /* libPods-RHVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7BAB59F9AE8237BAE222C6 /* libPods-RHVideo.a */; };
 		FC8697A82088D213008316F0 /* UIView+RH.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8697A72088D213008316F0 /* UIView+RH.m */; };
@@ -77,6 +78,8 @@
 		20C05FEE2088905D00EE82B9 /* HanJuVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HanJuVM.m; sourceTree = "<group>"; };
 		20C05FF02088A08E00EE82B9 /* HanJuModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HanJuModel.h; sourceTree = "<group>"; };
 		20C05FF12088A08E00EE82B9 /* HanJuModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HanJuModel.m; sourceTree = "<group>"; };
+		20C05FF4208DB4AA00EE82B9 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		20C05FF5208DB4AA00EE82B9 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		6304670AEB0C6CCF3E3A3AAD /* Pods-RHVideoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RHVideoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RHVideoTests/Pods-RHVideoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8EFA81C379958075360AFD09 /* Pods-RHVideoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RHVideoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RHVideoTests/Pods-RHVideoTests.release.xcconfig"; sourceTree = "<group>"; };
 		C17ED82136F7F94E54B3E3BE /* Pods-RHVideo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RHVideo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RHVideo/Pods-RHVideo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -220,6 +223,8 @@
 			children = (
 				205D0CB320872E58006D7892 /* HanJuViewController.h */,
 				205D0CB420872E58006D7892 /* HanJuViewController.m */,
+				20C05FF4208DB4AA00EE82B9 /* DetailsViewController.h */,
+				20C05FF5208DB4AA00EE82B9 /* DetailsViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -422,6 +427,7 @@
 				20C05FF22088A08E00EE82B9 /* HanJuModel.m in Sources */,
 				20741FE22087168D0058E139 /* ViewController.m in Sources */,
 				205D0CB520872E58006D7892 /* HanJuViewController.m in Sources */,
+				20C05FF6208DB4AA00EE82B9 /* DetailsViewController.m in Sources */,
 				20C05FE92088899B00EE82B9 /* RHNetworking.m in Sources */,
 				20C05FE02087747200EE82B9 /* HJCollectionViewCell.m in Sources */,
 				205D0CB220872DD5006D7892 /* MainViewController.m in Sources */,
