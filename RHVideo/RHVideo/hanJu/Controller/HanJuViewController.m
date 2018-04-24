@@ -19,7 +19,7 @@ NSString *const hj_cellID = @"HJ_CellID";
 
 @property (nonatomic, strong) UICollectionView *hj_collectionView;
 @property (nonatomic, strong) HJCollectionViewCell *hjCell;
-@property (nonatomic, strong) NSMutableArray *collectionData;
+@property (nonatomic, strong) NSArray *collectionData;
 @property (nonatomic, strong) HanJuVM *hj_vm;
 
 @end
@@ -59,29 +59,12 @@ NSString *const hj_cellID = @"HJ_CellID";
     [_hj_collectionView registerClass:[HJCollectionViewCell class] forCellWithReuseIdentifier:hj_cellID];
 }
 
-- (void)loadMoreData {
-    [self.hj_vm hj_loadMoreDataSource:^(NSArray *dataSource) {
-        [self.hj_collectionView.mj_footer endRefreshing];
-        if (dataSource.count > 0) {
-            [self.collectionData addObjectsFromArray:dataSource];
-            [self.hj_collectionView reloadData];
-            self.hj_collectionView.mj_footer.hidden = YES;
-            return;
-        }
-        // 错误处理
-        [self.view rh_showText:@"获取数据失败"];
-        return;
-    } error:^(NSError *error) {
-        [self.view rh_showText:error.localizedDescription];
-        [self.hj_collectionView.mj_footer endRefreshing];
-    }];
-}
-
+/// 加载数据
 - (void)setupData {
-    [self.hj_vm hj_loadDataSource:^(NSArray *dataSource) {
+    [self.hj_vm hj_loadDataSource:^(NSArray <HanJuModel *> *dataArr) {
         [self.hj_collectionView.mj_header endRefreshing];
-        if (dataSource.count > 0) {
-            self.collectionData = dataSource.mutableCopy;
+        if (dataArr.count > 0) {
+            self.collectionData = dataArr.copy;
             [self.hj_collectionView reloadData];
             self.hj_collectionView.mj_footer.hidden = NO;
             return;
@@ -92,6 +75,25 @@ NSString *const hj_cellID = @"HJ_CellID";
     } error:^(NSError *error) {
         [self.view rh_showText:error.localizedDescription];
         [self.hj_collectionView.mj_header endRefreshing];
+    }];
+}
+
+/// 加载更多
+- (void)loadMoreData {
+    [self.hj_vm hj_loadMoreDataSource:^(NSArray <HanJuModel *> *dataArr) {
+        [self.hj_collectionView.mj_footer endRefreshing];
+        if (dataArr.count > 0) {
+            self.collectionData = dataArr.copy;
+            [self.hj_collectionView reloadData];
+            self.hj_collectionView.mj_footer.hidden = YES;
+            return;
+        }
+        // 错误处理
+        [self.view rh_showText:@"获取数据失败"];
+        return;
+    } error:^(NSError *error) {
+        [self.view rh_showText:error.localizedDescription];
+        [self.hj_collectionView.mj_footer endRefreshing];
     }];
 }
 
@@ -113,13 +115,6 @@ NSString *const hj_cellID = @"HJ_CellID";
 }
 
 #pragma mark - GET
-- (NSMutableArray *)collectionData {
-    if (!_collectionData) {
-        _collectionData = [NSMutableArray array];
-    }
-    return _collectionData;
-}
-
 - (HanJuVM *)hj_vm {
     if (!_hj_vm) {
         _hj_vm = [[HanJuVM alloc] init];
