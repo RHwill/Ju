@@ -2,12 +2,13 @@
 //  HanJuViewController.m
 //  RHVideo
 //
-//  Created by 蔡荣辉 on 2018/4/18.
-//  Copyright © 2018年 蔡荣辉. All rights reserved.
+//  Created by lipsCai on 2018/4/18.
+//  Copyright © 2018年 lipsCai. All rights reserved.
 //
 
 #import "HanJuViewController.h"
 #import "HJCollectionViewCell.h"
+#import "DetailsViewController.h"
 #import "HanJuVM.h"
 #import "UIView+RH.h"
 #import <MJRefresh.h>
@@ -15,7 +16,7 @@
 
 NSString *const hj_cellID = @"HJ_CellID";
 
-@interface HanJuViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface HanJuViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIWebViewDelegate>
 
 @property (nonatomic, strong) UICollectionView *hj_collectionView;
 @property (nonatomic, strong) HJCollectionViewCell *hjCell;
@@ -28,6 +29,7 @@ NSString *const hj_cellID = @"HJ_CellID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self setupData];
     [self setupUI];
 }
@@ -110,8 +112,11 @@ NSString *const hj_cellID = @"HJ_CellID";
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"didSelect %ld", (long)indexPath.row);
-    [self.view rh_showText:[NSString stringWithFormat:@"点击了%ld",(long)indexPath.row]];
+    HanJuModel *hj_model = self.collectionData[indexPath.row];
+    DetailsViewController *detailsVC = [[DetailsViewController alloc] init];
+    detailsVC.model = hj_model;
+    detailsVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:detailsVC animated:YES];
 }
 
 #pragma mark - GET

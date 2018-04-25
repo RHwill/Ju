@@ -2,13 +2,15 @@
 //  DetailsViewController.m
 //  RHVideo
 //
-//  Created by 蔡荣辉 on 2018/4/23.
-//  Copyright © 2018年 蔡荣辉. All rights reserved.
+//  Created by lipsCai on 2018/4/23.
+//  Copyright © 2018年 lipsCai. All rights reserved.
 //
 
 #import "DetailsViewController.h"
 
-@interface DetailsViewController ()
+@interface DetailsViewController ()<UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) UITableView *deatilsTableView;
 
 @end
 
@@ -17,6 +19,42 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = self.model.name;
+    
+    [self.view addSubview:self.deatilsTableView];
+}
+
+- (UITableView *)deatilsTableView {
+    if (!_deatilsTableView) {
+        _deatilsTableView = [[UITableView alloc] initWithFrame:self.view.frame];
+        _deatilsTableView.dataSource = self;
+        _deatilsTableView.delegate = self;
+        [_deatilsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"defCell"];
+    }
+    return _deatilsTableView;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"defCell"];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 160;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return [self headerView];
+}
+
+- (UIView *)headerView {
+    UIView *hView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 160)];
+    hView.backgroundColor = [UIColor redColor];
+    return hView;
 }
 
 - (void)didReceiveMemoryWarning {
