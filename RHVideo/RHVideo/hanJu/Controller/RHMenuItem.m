@@ -9,12 +9,17 @@
 #import "RHMenuItem.h"
 
 static int lineHeight = 2;
+static int titleLabelTag = 1009;
 
-@interface RHMenuItem ()
+@interface RHMenuItem ()<UIScrollViewDelegate>
 
-@property (nonatomic) NSInteger titlesCount;
+@property (nonatomic, strong) NSArray *titlesArr;
 @property (nonatomic, strong) UIView *lineView;
 @property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic) CGFloat labelWidth;
+@property (nonatomic, strong) UILabel *tempLabel;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, getter=isLabelTap) BOOL labelTap;
 
 @end
 
@@ -24,41 +29,58 @@ static int lineHeight = 2;
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40);
+        self.frame = CGRectMake(0, 100, [UIScreen mainScreen].bounds.size.width, 190);
+        self.backgroundColor = [UIColor cyanColor];
+        [self setupUI];
     }
     return self;
 }
 
-- (void)setupUI {
-    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 0)];
-    self.scrollView.contentSize = CGSizeMake(self.frame.size.width * self.titlesCount, self.scrollView.frame.size.height);
-    self.scrollView.showsHorizontalScrollIndicator = NO;
-    self.scrollView.showsVerticalScrollIndicator = NO;
-    [self addSubview:self.scrollView];
-    
-    CGFloat labelWidth = (self.frame.size.width) / self.titlesCount;
-    for (int i = 0; i < self.titlesCount; i++) {
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(i * labelWidth, 0, labelWidth, self.frame.size.height - lineHeight)];
-        label.text = @"";
-        label.textAlignment = NSTextAlignmentCenter;
-        label.userInteractionEnabled = YES;
-        [self.scrollView addSubview:label];
-    }
-    
-    _lineView = [[UIView alloc] initWithFrame:CGRectMake(20, self.frame.size.height - lineHeight , labelWidth - 20, lineHeight)];
-    _lineView.backgroundColor = [UIColor magentaColor];
-    [self addSubview:_lineView];
+- (void)layoutSubviews {
+    [self reloadData];
 }
 
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    if ([self.delegate respondsToSelector:@selector(menuItem:didSelectedItemAtIndex:)]) {
-#warning <#message#>
-        NSLog(@"%@", touches.allObjects.lastObject.view);
-        [self.delegate menuItem:self didSelectedItemAtIndex:0];
-        // 改变line 线位置
-        
-        
+- (void)setupUI {
+    UIScrollView *titleScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 30)];
+    titleScrollView.showsVerticalScrollIndicator = NO;
+    titleScrollView.showsHorizontalScrollIndicator = NO;
+    [self addSubview:titleScrollView];
+    
+    for (int i = 0; i < self.titlesArr.count; i++) {
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(i * self.labelWidth, 0, self.labelWidth, titleScrollView.frame.size.height - lineHeight)];
+        _titleLabel.text = self.titlesArr[i];
+        if (i == 0) {
+             _titleLabel.textColor = [UIColor magentaColor];
+            _tempLabel = _titleLabel;
+        }
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.userInteractionEnabled = YES;
+        _titleLabel.tag = i + titleLabelTag;
+        [titleScrollView addSubview:_titleLabel];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap:)];
+        [_titleLabel addGestureRecognizer:tap];
     }
+    
+    _lineView = [[UIView alloc] initWithFrame:CGRectMake(0, titleScrollView.frame.size.height - lineHeight , self.labelWidth - 50, lineHeight)];
+    _lineView.backgroundColor = [UIColor magentaColor];
+    [titleScrollView addSubview:_lineView];
+    [UIView animateWithDuration:0.25 animations:^{
+        self.lineView.transform =  CGAffineTransformMakeTranslation(25, 0);
+    }];
+    
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 30, self.frame.size.width, self.frame.size.height - 30)];
+    self.scrollView.contentSize = CGSizeMake(self.frame.size.width * self.titlesArr.count, 0);
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView.showsVerticalScrollIndicator = NO;
+    self.scrollView.scrollsToTop = NO;
+    self.scrollView.pagingEnabled = YES;
+    self.scrollView.delegate = self;
+    [self addSubview:self.scrollView];
+}
+
+- (void)reloadData {
+    [self removeAllViews];
+    [self setupUI];
 }
 
 - (void)removeAllViews {
@@ -67,14 +89,74 @@ static int lineHeight = 2;
     }
 }
 
-- (void)reloadData {
-    [self removeAllViews];
-    [self setupUI];
+#pragma mark - UITapGestureRecognizer
+- (void)labelTap:(UITapGestureRecognizer *)tap {
+    UILabel *tapView = (UILabel *)tap.view;
+    if (tapView.tag == self.tempLabel.tag) {
+        return;
+    }
+    NSInteger tag = tap.view.tag - titleLabelTag;
+    [UIView animateWithDuration:0.25 animations:^{
+        self.lineView.transform = CGAffineTransformMakeTranslation(self.labelWidth * tag + 25, 0);
+    } completion:^(BOOL finished) {
+        self.labelTap = YES;
+        self.tempLabel.textColor = [UIColor blackColor];
+        tapView.textColor = [UIColor magentaColor];
+        self.tempLabel = tapView;
+        [self.scrollView setContentOffset:CGPointMake(self.frame.size.width * tag, 0) animated:YES];
+    }];
+}
+
+#pragma mark - scrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (self.isLabelTap) {
+        return;
+    }
+    CGFloat contentOffsetX = scrollView.contentOffset.x;
+    if (contentOffsetX < 0) {
+        contentOffsetX = 0;
+    }
+    if (contentOffsetX > scrollView.contentSize.width - self.frame.size.width) {
+        contentOffsetX = scrollView.contentSize.width - self.frame.size.width;
+    }
+    CGFloat rate = contentOffsetX / self.frame.size.width;
+    
+    rate *= self.labelWidth;
+    rate += 25;
+    self.lineView.transform = CGAffineTransformMakeTranslation(rate, 0);
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    self.labelTap = NO;
+    for (int i = 0; i < self.titlesArr.count; i++) {
+        UILabel *tempLabel = [self viewWithTag:i + titleLabelTag];
+        tempLabel.userInteractionEnabled = NO;
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    for (int i = 0; i < self.titlesArr.count; i++) {
+        UILabel *tempLabel = [self viewWithTag:i + titleLabelTag];
+        tempLabel.userInteractionEnabled = YES;
+        CGFloat rate = scrollView.contentOffset.x / self.frame.size.width;
+        if (i + titleLabelTag == rate + titleLabelTag) {
+            _tempLabel.textColor = [UIColor blackColor];
+            tempLabel.textColor = [UIColor magentaColor];
+            _tempLabel = tempLabel;
+        }
+    }
 }
 
 #pragma mark - GET
-- (NSInteger)titlesCount {
-    return [self.dataSource numberOfTitlesInMenuItem:self];
+- (NSArray *)titlesArr {
+    if ([self.dataSource respondsToSelector:@selector(numberOfTitlesInMenuItem:)]) {
+        return [self.dataSource numberOfTitlesInMenuItem:self];
+    }
+    return @[];
+}
+
+- (CGFloat)labelWidth {
+    return (self.frame.size.width) / self.titlesArr.count;
 }
 
 @end

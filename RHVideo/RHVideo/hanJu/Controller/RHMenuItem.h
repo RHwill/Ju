@@ -12,7 +12,7 @@
 @protocol RHMenuItemDataSoucre <NSObject>
 
 @required
-- (NSInteger)numberOfTitlesInMenuItem:(RHMenuItem *)menu;
+- (NSArray *)numberOfTitlesInMenuItem:(RHMenuItem *)menu;
 
 @end
 

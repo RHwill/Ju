@@ -13,10 +13,11 @@
 #import "UIView+RH.h"
 #import <MJRefresh.h>
 #import <MBProgressHUD.h>
+#import "RHMenuItem.h"
 
 NSString *const hj_cellID = @"HJ_CellID";
 
-@interface HanJuViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIWebViewDelegate>
+@interface HanJuViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, RHMenuItemDelegate,RHMenuItemDataSoucre>
 
 @property (nonatomic, strong) UICollectionView *hj_collectionView;
 @property (nonatomic, strong) HJCollectionViewCell *hjCell;
@@ -30,9 +31,27 @@ NSString *const hj_cellID = @"HJ_CellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setupData];
-    [self setupUI];
+//    [self setupData];
+//    [self setupUI];
+    
+    [self testUI];
 }
+
+- (void)testUI {
+    RHMenuItem *rh = [[RHMenuItem alloc] initWithFrame:CGRectMake(0, 60, 100, 100)];
+    rh.dataSource = self;
+    rh.delegate = self;
+    [self.view addSubview:rh];
+}
+
+- (NSArray *)numberOfTitlesInMenuItem:(RHMenuItem *)menu {
+    return @[@"剧集", @"详情", @"讨论区"];
+}
+- (void)menuItem:(RHMenuItem *)menu didSelectedItemAtIndex:(NSInteger)index {
+    NSLog(@"%@",@(index));
+}
+
+
 
 - (void)setupUI {
     UICollectionViewFlowLayout *customLayout = [[UICollectionViewFlowLayout alloc] init];
