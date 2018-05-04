@@ -12,6 +12,7 @@
 @protocol RHMenuItemDataSoucre <NSObject>
 
 @required
+
 - (NSArray *)numberOfTitlesInMenuItem:(RHMenuItem *)menu;
 
 @end
@@ -27,6 +28,7 @@
 @property (nonatomic, weak) id <RHMenuItemDataSoucre>dataSource;
 @property (nonatomic, weak) id <RHMenuItemDelegate>delegate;
 
+@property (nonatomic, strong) UIScrollView *scrollView;
 /// 重新加载数据
 - (void)reloadData;
 

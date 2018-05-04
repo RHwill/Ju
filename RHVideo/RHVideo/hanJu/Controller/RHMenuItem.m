@@ -15,7 +15,7 @@ static int titleLabelTag = 1009;
 
 @property (nonatomic, strong) NSArray *titlesArr;
 @property (nonatomic, strong) UIView *lineView;
-@property (nonatomic, strong) UIScrollView *scrollView;
+
 @property (nonatomic) CGFloat labelWidth;
 @property (nonatomic, strong) UILabel *tempLabel;
 @property (nonatomic, strong) UILabel *titleLabel;
@@ -29,8 +29,7 @@ static int titleLabelTag = 1009;
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.frame = CGRectMake(0, 100, [UIScreen mainScreen].bounds.size.width, 190);
-        self.backgroundColor = [UIColor cyanColor];
+        self.frame = CGRectMake(0, frame.origin.y, [UIScreen mainScreen].bounds.size.width, frame.size.height);
         [self setupUI];
     }
     return self;
@@ -46,12 +45,21 @@ static int titleLabelTag = 1009;
     titleScrollView.showsHorizontalScrollIndicator = NO;
     [self addSubview:titleScrollView];
     
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 30, self.frame.size.width, self.frame.size.height - 30)];
+    self.scrollView.contentSize = CGSizeMake(self.frame.size.width * self.titlesArr.count, 0);
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView.showsVerticalScrollIndicator = NO;
+    self.scrollView.scrollsToTop = NO;
+    self.scrollView.pagingEnabled = YES;
+    self.scrollView.delegate = self;
+    [self addSubview:self.scrollView];
     for (int i = 0; i < self.titlesArr.count; i++) {
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(i * self.labelWidth, 0, self.labelWidth, titleScrollView.frame.size.height - lineHeight)];
         _titleLabel.text = self.titlesArr[i];
         if (i == 0) {
              _titleLabel.textColor = [UIColor magentaColor];
             _tempLabel = _titleLabel;
+            [self didSelect:0];
         }
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.userInteractionEnabled = YES;
@@ -68,14 +76,6 @@ static int titleLabelTag = 1009;
         self.lineView.transform =  CGAffineTransformMakeTranslation(25, 0);
     }];
     
-    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 30, self.frame.size.width, self.frame.size.height - 30)];
-    self.scrollView.contentSize = CGSizeMake(self.frame.size.width * self.titlesArr.count, 0);
-    self.scrollView.showsHorizontalScrollIndicator = NO;
-    self.scrollView.showsVerticalScrollIndicator = NO;
-    self.scrollView.scrollsToTop = NO;
-    self.scrollView.pagingEnabled = YES;
-    self.scrollView.delegate = self;
-    [self addSubview:self.scrollView];
 }
 
 - (void)reloadData {
@@ -104,6 +104,7 @@ static int titleLabelTag = 1009;
         tapView.textColor = [UIColor magentaColor];
         self.tempLabel = tapView;
         [self.scrollView setContentOffset:CGPointMake(self.frame.size.width * tag, 0) animated:YES];
+        [self didSelect:tag];
     }];
 }
 
@@ -138,12 +139,21 @@ static int titleLabelTag = 1009;
     for (int i = 0; i < self.titlesArr.count; i++) {
         UILabel *tempLabel = [self viewWithTag:i + titleLabelTag];
         tempLabel.userInteractionEnabled = YES;
-        CGFloat rate = scrollView.contentOffset.x / self.frame.size.width;
-        if (i + titleLabelTag == rate + titleLabelTag) {
-            _tempLabel.textColor = [UIColor blackColor];
-            tempLabel.textColor = [UIColor magentaColor];
-            _tempLabel = tempLabel;
-        }
+    }
+    CGFloat rate = scrollView.contentOffset.x / self.frame.size.width;
+    UILabel *selectLabel = [self viewWithTag:rate + titleLabelTag];
+    if (self.tempLabel.tag == selectLabel.tag) {
+        return;
+    }
+    _tempLabel.textColor = [UIColor blackColor];
+    selectLabel.textColor = [UIColor magentaColor];
+    _tempLabel = selectLabel;
+    [self didSelect:selectLabel.tag - titleLabelTag];
+}
+
+- (void)didSelect:(NSInteger)index {
+    if ([self.delegate respondsToSelector:@selector(menuItem:didSelectedItemAtIndex:)]) {
+        [self.delegate menuItem:self didSelectedItemAtIndex:index];
     }
 }
 

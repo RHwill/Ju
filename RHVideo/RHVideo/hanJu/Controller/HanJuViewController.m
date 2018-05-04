@@ -15,6 +15,10 @@
 #import <MBProgressHUD.h>
 #import "RHMenuItem.h"
 
+#import "JuViewController.h"
+#import "QingViewController.h"
+#import "TaoViewController.h"
+
 NSString *const hj_cellID = @"HJ_CellID";
 
 @interface HanJuViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, RHMenuItemDelegate,RHMenuItemDataSoucre>
@@ -47,8 +51,23 @@ NSString *const hj_cellID = @"HJ_CellID";
 - (NSArray *)numberOfTitlesInMenuItem:(RHMenuItem *)menu {
     return @[@"剧集", @"详情", @"讨论区"];
 }
+
 - (void)menuItem:(RHMenuItem *)menu didSelectedItemAtIndex:(NSInteger)index {
-    NSLog(@"%@",@(index));
+    [self addChildViewController:nil];
+    [menu.scrollView addSubview:nil];
+    NSLog(@"---00 ---%@",@(index));
+    
+    /*
+     - (void)wm_addCachedViewController:(UIViewController *)viewController atIndex:(NSInteger)index {
+     [self addChildViewController:viewController];
+     viewController.view.frame = [self.childViewFrames[index] CGRectValue];
+     [viewController didMoveToParentViewController:self];
+     [self.scrollView addSubview:viewController.view];
+     [self willEnterController:viewController atIndex:index];
+     [self.displayVC setObject:viewController forKey:@(index)];
+     }
+     
+     */
 }
 
 

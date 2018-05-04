@@ -27,6 +27,9 @@
 		20C05FF6208DB4AA00EE82B9 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C05FF5208DB4AA00EE82B9 /* DetailsViewController.m */; };
 		20D5A1F3208F0B5200994BCE /* HJHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D5A1F2208F0B5200994BCE /* HJHeaderView.m */; };
 		20D5A1F6208F15D800994BCE /* RHMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D5A1F5208F15D800994BCE /* RHMenuItem.m */; };
+		20D5A1FC209C55E600994BCE /* JuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D5A1FB209C55E600994BCE /* JuViewController.m */; };
+		20D5A1FF209C55FF00994BCE /* QingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D5A1FE209C55FF00994BCE /* QingViewController.m */; };
+		20D5A202209C560D00994BCE /* TaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D5A201209C560D00994BCE /* TaoViewController.m */; };
 		59F065B45900C9D629B137B9 /* libPods-RHVideoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0843D07A4135E63995372D96 /* libPods-RHVideoTests.a */; };
 		C63C1C31D4C0848D8708A62A /* libPods-RHVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7BAB59F9AE8237BAE222C6 /* libPods-RHVideo.a */; };
 		FC8697A82088D213008316F0 /* UIView+RH.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8697A72088D213008316F0 /* UIView+RH.m */; };
@@ -86,6 +89,12 @@
 		20D5A1F2208F0B5200994BCE /* HJHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HJHeaderView.m; sourceTree = "<group>"; };
 		20D5A1F4208F15D800994BCE /* RHMenuItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RHMenuItem.h; sourceTree = "<group>"; };
 		20D5A1F5208F15D800994BCE /* RHMenuItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RHMenuItem.m; sourceTree = "<group>"; };
+		20D5A1FA209C55E600994BCE /* JuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JuViewController.h; sourceTree = "<group>"; };
+		20D5A1FB209C55E600994BCE /* JuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JuViewController.m; sourceTree = "<group>"; };
+		20D5A1FD209C55FF00994BCE /* QingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QingViewController.h; sourceTree = "<group>"; };
+		20D5A1FE209C55FF00994BCE /* QingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QingViewController.m; sourceTree = "<group>"; };
+		20D5A200209C560D00994BCE /* TaoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaoViewController.h; sourceTree = "<group>"; };
+		20D5A201209C560D00994BCE /* TaoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaoViewController.m; sourceTree = "<group>"; };
 		6304670AEB0C6CCF3E3A3AAD /* Pods-RHVideoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RHVideoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RHVideoTests/Pods-RHVideoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8EFA81C379958075360AFD09 /* Pods-RHVideoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RHVideoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RHVideoTests/Pods-RHVideoTests.release.xcconfig"; sourceTree = "<group>"; };
 		C17ED82136F7F94E54B3E3BE /* Pods-RHVideo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RHVideo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RHVideo/Pods-RHVideo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -231,6 +240,12 @@
 				205D0CB420872E58006D7892 /* HanJuViewController.m */,
 				20C05FF4208DB4AA00EE82B9 /* DetailsViewController.h */,
 				20C05FF5208DB4AA00EE82B9 /* DetailsViewController.m */,
+				20D5A1FA209C55E600994BCE /* JuViewController.h */,
+				20D5A1FB209C55E600994BCE /* JuViewController.m */,
+				20D5A1FD209C55FF00994BCE /* QingViewController.h */,
+				20D5A1FE209C55FF00994BCE /* QingViewController.m */,
+				20D5A200209C560D00994BCE /* TaoViewController.h */,
+				20D5A201209C560D00994BCE /* TaoViewController.m */,
 				20D5A1F4208F15D800994BCE /* RHMenuItem.h */,
 				20D5A1F5208F15D800994BCE /* RHMenuItem.m */,
 				20D5A1F1208F0B5200994BCE /* HJHeaderView.h */,
@@ -437,6 +452,7 @@
 				20D5A1F3208F0B5200994BCE /* HJHeaderView.m in Sources */,
 				20C05FF22088A08E00EE82B9 /* HanJuModel.m in Sources */,
 				20741FE22087168D0058E139 /* ViewController.m in Sources */,
+				20D5A202209C560D00994BCE /* TaoViewController.m in Sources */,
 				205D0CB520872E58006D7892 /* HanJuViewController.m in Sources */,
 				20C05FF6208DB4AA00EE82B9 /* DetailsViewController.m in Sources */,
 				20C05FE92088899B00EE82B9 /* RHNetworking.m in Sources */,
@@ -445,7 +461,9 @@
 				205D0CAC20872C6D006D7892 /* MainTabBarViewController.m in Sources */,
 				20741FED208716BD0058E139 /* main.m in Sources */,
 				20C05FEF2088905D00EE82B9 /* HanJuVM.m in Sources */,
+				20D5A1FC209C55E600994BCE /* JuViewController.m in Sources */,
 				20D5A1F6208F15D800994BCE /* RHMenuItem.m in Sources */,
+				20D5A1FF209C55FF00994BCE /* QingViewController.m in Sources */,
 				20741FDF2087168D0058E139 /* AppDelegate.m in Sources */,
 				205D0CAF20872D46006D7892 /* MainNavViewController.m in Sources */,
 			);
