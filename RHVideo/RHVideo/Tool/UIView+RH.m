@@ -31,7 +31,7 @@
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
     [imageView setImage:image];
     [self addSubview:imageView];
-    return imageView;
+    return self;
 }
 
 - (void)rh_showText:(NSString *)text {

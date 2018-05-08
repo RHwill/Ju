@@ -38,7 +38,7 @@
     UIImageView *imageView = [UIImageView new];
     [backgroundImageView addSubview:imageView];
     [imageView imageWithURL:self.dataModel.thumb radius:4.0];
-    [imageView rh_shadowColor:[UIColor blackColor] offset:CGSizeMake(-0.5, 0) opacity:0.1 radius:3];
+    [imageView rh_shadowColor:[UIColor blackColor] offset:CGSizeMake(-0.5, 0) opacity:0.1 radius:2];
     [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self).offset(10);
         make.top.mas_equalTo(self).offset(15);
@@ -51,9 +51,67 @@
     
     UILabel *countLabel = [UILabel new];
     [self addSubview:countLabel];
+    countLabel.textColor = [UIColor whiteColor];
+    if (self.dataModel.isFinished) {
+        countLabel.text = [NSString stringWithFormat:@"%d集全", self.dataModel.count];
+    }else {
+        countLabel.text = [NSString stringWithFormat:@"更新到%d集", self.dataModel.count];
+    }
+    [countLabel rh_shadowColor:[UIColor grayColor] offset:CGSizeMake(-0.5, 0) opacity:0.1 radius:2];
     [countLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        
+        make.left.mas_equalTo(imageView.mas_right).offset(15);
+        make.top.mas_equalTo(starView.mas_bottom).offset(15);
+        make.width.mas_equalTo(100);
     }];
+    
+    UILabel *fromLabel = [UILabel new];
+    [self addSubview:fromLabel];
+    fromLabel.textColor = [UIColor whiteColor];
+    fromLabel.text = [NSString stringWithFormat:@"来源：%@", self.dataModel.source];
+    [fromLabel rh_shadowColor:[UIColor grayColor] offset:CGSizeMake(-0.5, 0) opacity:0.1 radius:2];
+    [fromLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(countLabel.mas_left);
+        make.top.mas_equalTo(countLabel.mas_bottom).offset(10);
+        make.width.mas_equalTo(150);
+    }];
+    
+    UIButton *setButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self addSubview:setButton];
+    [setButton setTitle:[NSString stringWithFormat:@"▶ 第%@集", @(1)] forState:UIControlStateNormal];
+    setButton.backgroundColor = [UIColor purpleColor];
+    [setButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    setButton.layer.cornerRadius = 5.0;
+//    setButton.layer.shouldRasterize = YES;
+    [setButton addTarget:self action:@selector(setButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [setButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(fromLabel.mas_left);
+        make.top.mas_equalTo(fromLabel.mas_bottom).offset(20);
+        make.width.mas_equalTo(95);
+        make.height.mas_equalTo(35);
+    }];
+    
+    UIButton *cacheButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self addSubview:cacheButton];
+    [cacheButton setTitle:@"♨ 缓存" forState:UIControlStateNormal];
+    cacheButton.backgroundColor = [UIColor purpleColor];
+    cacheButton.layer.cornerRadius = 5.0;
+//    cacheButton.layer.shouldRasterize = YES;
+    [cacheButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [cacheButton addTarget:self action:@selector(cacheButtonClick) forControlEvents:UIControlEventTouchUpInside];
+    [cacheButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(setButton.mas_right).offset(15);
+        make.top.mas_equalTo(setButton.mas_top);
+        make.width.mas_equalTo(setButton.mas_width);
+        make.height.mas_equalTo(setButton.mas_height);
+    }];
+}
+
+- (void)setButtonClick {
+    NSLog(@"jishu");
+}
+
+- (void)cacheButtonClick {
+    NSLog(@"huancun");
 }
 
 @end
