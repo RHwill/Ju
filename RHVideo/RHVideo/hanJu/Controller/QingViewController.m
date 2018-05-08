@@ -32,7 +32,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ce"];
     cell.textLabel.text = [NSString stringWithFormat:@"iiiiii___%ld", (long)indexPath.row];
-    NSLog(@"cel %@", cell.textLabel.text);
     return cell;
 }
 

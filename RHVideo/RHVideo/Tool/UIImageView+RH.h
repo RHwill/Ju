@@ -12,4 +12,6 @@
 
 - (void)imageWithURL:(NSString *)url radius:(CGFloat)radius;
 
+- (void)imageLightEffectWithURL:(NSString *)url;
+
 @end

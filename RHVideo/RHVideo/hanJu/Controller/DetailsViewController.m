@@ -7,10 +7,13 @@
 //
 
 #import "DetailsViewController.h"
+#import "DetailsHeaderView.h"
+#import "RHMenuItem.h"
 
-@interface DetailsViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface DetailsViewController ()<UITableViewDataSource, UITableViewDelegate, RHMenuItemDataSoucre, RHMenuItemDelegate>
 
 @property (nonatomic, strong) UITableView *deatilsTableView;
+@property (nonatomic, strong) UIScrollView *detailsScrollView;
 
 @end
 
@@ -21,7 +24,39 @@
     // Do any additional setup after loading the view.
     self.title = self.model.name;
     
-    [self.view addSubview:self.deatilsTableView];
+//    [self.view addSubview:self.deatilsTableView];
+    [self setupViews];
+}
+
+- (void)setupViews {
+    self.navigationController.navigationBar.translucent = NO;
+    // 滚动view
+    self.detailsScrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
+    self.detailsScrollView.showsVerticalScrollIndicator = NO;
+    self.detailsScrollView.showsHorizontalScrollIndicator = NO;
+    self.detailsScrollView.delegate = self;
+    [self.view addSubview:self.detailsScrollView];
+    
+    // 头部view
+    DetailsHeaderView *headerView = [[DetailsHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 180) model:self.model];
+    [self.detailsScrollView addSubview:headerView];
+    
+    
+    RHMenuItem *rh = [[RHMenuItem alloc] initWithFrame:CGRectMake(0, 0, 200, 400)];
+    rh.dataSource = self;
+    rh.delegate = self;
+//    [self.view addSubview:rh];
+}
+
+- (NSArray *)numberOfTitlesInMenuItem:(RHMenuItem *)menu {
+    return @[@"剧集", @"详情", @"讨论区"];
+}
+
+- (void)menuItem:(RHMenuItem *)menu didSelectedItemAtIndex:(NSInteger)index {
+//    QingViewController *qing = [[QingViewController alloc] init];
+//    [self addChildViewController:qing];
+//    [menu.scrollView addSubview:qing.view];
+//    [qing didMoveToParentViewController:self];
 }
 
 - (UITableView *)deatilsTableView {

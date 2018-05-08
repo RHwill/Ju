@@ -14,4 +14,6 @@
 
 - (void)rh_showText:(NSString *)text;
 
+- (void)rh_shadowColor:(UIColor *)color offset:(CGSize)offset opacity:(float)opacity radius:(CGFloat)radius;
+
 @end

@@ -32,7 +32,9 @@
         
         self.hj_dataSource = dataArr;
         NSArray *listArr = [self addSeriesList:dataArr];
-        [self.hj_cache setObject:dataArr forKey:@"seriesList" withBlock:^{}];
+        if (![(NSArray *)[self.hj_cache objectForKey:@"seriesList"] isEqual: dataArr]) {
+            [self.hj_cache setObject:dataArr forKey:@"seriesList" withBlock:^{}];
+        }
         dataSource(listArr);
     } error:error];
 }
@@ -85,7 +87,7 @@
 - (NSArray *)addSeriesList {
     if ([self.hj_cache containsObjectForKey:@"seriesList"]) {
         id seriesList = [self.hj_cache objectForKey:@"seriesList"];
-        return [self addHanJuModel:seriesList];
+        return seriesList;
     }
     return @[];
 }
@@ -101,7 +103,9 @@
     NSMutableArray *mutableArr = [NSMutableArray array];
     for (NSDictionary *dict in arr) {
         HanJuModel *hj_model = [HanJuModel yy_modelWithJSON:dict];
-        [mutableArr addObject:hj_model];
+        if (hj_model) {
+            [mutableArr addObject:hj_model];
+        }
     }
     return mutableArr.copy;
 }

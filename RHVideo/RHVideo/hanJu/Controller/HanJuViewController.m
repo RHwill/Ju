@@ -35,42 +35,9 @@ NSString *const hj_cellID = @"HJ_CellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [self setupData];
-//    [self setupUI];
-    
-    [self testUI];
+    [self setupData];
+    [self setupUI];
 }
-
-- (void)testUI {
-    RHMenuItem *rh = [[RHMenuItem alloc] initWithFrame:CGRectMake(0, 60, 100, 100)];
-    rh.dataSource = self;
-    rh.delegate = self;
-    [self.view addSubview:rh];
-}
-
-- (NSArray *)numberOfTitlesInMenuItem:(RHMenuItem *)menu {
-    return @[@"剧集", @"详情", @"讨论区"];
-}
-
-- (void)menuItem:(RHMenuItem *)menu didSelectedItemAtIndex:(NSInteger)index {
-    [self addChildViewController:nil];
-    [menu.scrollView addSubview:nil];
-    NSLog(@"---00 ---%@",@(index));
-    
-    /*
-     - (void)wm_addCachedViewController:(UIViewController *)viewController atIndex:(NSInteger)index {
-     [self addChildViewController:viewController];
-     viewController.view.frame = [self.childViewFrames[index] CGRectValue];
-     [viewController didMoveToParentViewController:self];
-     [self.scrollView addSubview:viewController.view];
-     [self willEnterController:viewController atIndex:index];
-     [self.displayVC setObject:viewController forKey:@(index)];
-     }
-     
-     */
-}
-
-
 
 - (void)setupUI {
     UICollectionViewFlowLayout *customLayout = [[UICollectionViewFlowLayout alloc] init];

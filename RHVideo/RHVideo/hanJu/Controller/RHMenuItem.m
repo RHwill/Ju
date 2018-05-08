@@ -75,7 +75,6 @@ static int titleLabelTag = 1009;
     [UIView animateWithDuration:0.25 animations:^{
         self.lineView.transform =  CGAffineTransformMakeTranslation(25, 0);
     }];
-    
 }
 
 - (void)reloadData {

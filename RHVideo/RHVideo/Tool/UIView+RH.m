@@ -50,4 +50,11 @@
     [hud showAnimated:YES];
 }
 
+- (void)rh_shadowColor:(UIColor *)color offset:(CGSize)offset opacity:(float)opacity radius:(CGFloat)radius {
+    self.layer.shadowColor = color.CGColor; //shadowColor阴影颜色
+    self.layer.shadowOffset = offset;  // shadowOffset阴影偏移，默认(0, -3),这个跟shadowRadius配合使用
+    self.layer.shadowOpacity = opacity; // 阴影透明度，默认0
+    self.layer.shadowRadius = radius; // 阴影半径，默认3
+}
+
 @end
