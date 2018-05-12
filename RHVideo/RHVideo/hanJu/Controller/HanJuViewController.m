@@ -13,15 +13,10 @@
 #import "UIView+RH.h"
 #import <MJRefresh.h>
 #import <MBProgressHUD.h>
-#import "RHMenuItem.h"
-
-#import "JuViewController.h"
-#import "QingViewController.h"
-#import "TaoViewController.h"
 
 NSString *const hj_cellID = @"HJ_CellID";
 
-@interface HanJuViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, RHMenuItemDelegate,RHMenuItemDataSoucre>
+@interface HanJuViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UICollectionView *hj_collectionView;
 @property (nonatomic, strong) HJCollectionViewCell *hjCell;

@@ -25,17 +25,14 @@
 		20C05FEF2088905D00EE82B9 /* HanJuVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C05FEE2088905D00EE82B9 /* HanJuVM.m */; };
 		20C05FF22088A08E00EE82B9 /* HanJuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C05FF12088A08E00EE82B9 /* HanJuModel.m */; };
 		20C05FF6208DB4AA00EE82B9 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C05FF5208DB4AA00EE82B9 /* DetailsViewController.m */; };
-		20D5A1F3208F0B5200994BCE /* HJHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D5A1F2208F0B5200994BCE /* HJHeaderView.m */; };
 		20D5A1F6208F15D800994BCE /* RHMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D5A1F5208F15D800994BCE /* RHMenuItem.m */; };
-		20D5A1FC209C55E600994BCE /* JuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D5A1FB209C55E600994BCE /* JuViewController.m */; };
-		20D5A1FF209C55FF00994BCE /* QingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D5A1FE209C55FF00994BCE /* QingViewController.m */; };
-		20D5A202209C560D00994BCE /* TaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D5A201209C560D00994BCE /* TaoViewController.m */; };
 		20D5A205209FF46A00994BCE /* DetailsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D5A204209FF46A00994BCE /* DetailsHeaderView.m */; };
 		20D5A20820A01FBE00994BCE /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D5A20720A01FBE00994BCE /* UIImage+ImageEffects.m */; };
 		20D5A20B20A0272500994BCE /* HJStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 20D5A20A20A0272500994BCE /* HJStarView.m */; };
 		20D5A21020A02E0500994BCE /* detail_all_star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D5A20D20A02E0400994BCE /* detail_all_star@2x.png */; };
 		20D5A21120A02E0500994BCE /* detail_empty_star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D5A20E20A02E0400994BCE /* detail_empty_star@2x.png */; };
 		20D5A21220A02E0500994BCE /* detail_half_star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20D5A20F20A02E0500994BCE /* detail_half_star@2x.png */; };
+		20EB0FC820A2E1BB000CCE09 /* PlayListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20EB0FC720A2E1BB000CCE09 /* PlayListViewController.m */; };
 		59F065B45900C9D629B137B9 /* libPods-RHVideoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0843D07A4135E63995372D96 /* libPods-RHVideoTests.a */; };
 		C63C1C31D4C0848D8708A62A /* libPods-RHVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7BAB59F9AE8237BAE222C6 /* libPods-RHVideo.a */; };
 		FC8697A82088D213008316F0 /* UIView+RH.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8697A72088D213008316F0 /* UIView+RH.m */; };
@@ -91,16 +88,8 @@
 		20C05FF12088A08E00EE82B9 /* HanJuModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HanJuModel.m; sourceTree = "<group>"; };
 		20C05FF4208DB4AA00EE82B9 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		20C05FF5208DB4AA00EE82B9 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
-		20D5A1F1208F0B5200994BCE /* HJHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HJHeaderView.h; sourceTree = "<group>"; };
-		20D5A1F2208F0B5200994BCE /* HJHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HJHeaderView.m; sourceTree = "<group>"; };
 		20D5A1F4208F15D800994BCE /* RHMenuItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RHMenuItem.h; sourceTree = "<group>"; };
 		20D5A1F5208F15D800994BCE /* RHMenuItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RHMenuItem.m; sourceTree = "<group>"; };
-		20D5A1FA209C55E600994BCE /* JuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JuViewController.h; sourceTree = "<group>"; };
-		20D5A1FB209C55E600994BCE /* JuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JuViewController.m; sourceTree = "<group>"; };
-		20D5A1FD209C55FF00994BCE /* QingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QingViewController.h; sourceTree = "<group>"; };
-		20D5A1FE209C55FF00994BCE /* QingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QingViewController.m; sourceTree = "<group>"; };
-		20D5A200209C560D00994BCE /* TaoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaoViewController.h; sourceTree = "<group>"; };
-		20D5A201209C560D00994BCE /* TaoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaoViewController.m; sourceTree = "<group>"; };
 		20D5A203209FF46A00994BCE /* DetailsHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsHeaderView.h; sourceTree = "<group>"; };
 		20D5A204209FF46A00994BCE /* DetailsHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsHeaderView.m; sourceTree = "<group>"; };
 		20D5A20620A01FBE00994BCE /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
@@ -110,6 +99,8 @@
 		20D5A20D20A02E0400994BCE /* detail_all_star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detail_all_star@2x.png"; sourceTree = "<group>"; };
 		20D5A20E20A02E0400994BCE /* detail_empty_star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detail_empty_star@2x.png"; sourceTree = "<group>"; };
 		20D5A20F20A02E0500994BCE /* detail_half_star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detail_half_star@2x.png"; sourceTree = "<group>"; };
+		20EB0FC620A2E1BB000CCE09 /* PlayListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayListViewController.h; sourceTree = "<group>"; };
+		20EB0FC720A2E1BB000CCE09 /* PlayListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayListViewController.m; sourceTree = "<group>"; };
 		6304670AEB0C6CCF3E3A3AAD /* Pods-RHVideoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RHVideoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RHVideoTests/Pods-RHVideoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8EFA81C379958075360AFD09 /* Pods-RHVideoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RHVideoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RHVideoTests/Pods-RHVideoTests.release.xcconfig"; sourceTree = "<group>"; };
 		C17ED82136F7F94E54B3E3BE /* Pods-RHVideo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RHVideo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RHVideo/Pods-RHVideo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -219,6 +210,12 @@
 		20C05FE12088720A00EE82B9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				20D5A203209FF46A00994BCE /* DetailsHeaderView.h */,
+				20D5A204209FF46A00994BCE /* DetailsHeaderView.m */,
+				20D5A20920A0272500994BCE /* HJStarView.h */,
+				20D5A20A20A0272500994BCE /* HJStarView.m */,
+				20D5A1F4208F15D800994BCE /* RHMenuItem.h */,
+				20D5A1F5208F15D800994BCE /* RHMenuItem.m */,
 				20C05FDE2087747200EE82B9 /* HJCollectionViewCell.h */,
 				20C05FDF2087747200EE82B9 /* HJCollectionViewCell.m */,
 			);
@@ -258,20 +255,8 @@
 				205D0CB420872E58006D7892 /* HanJuViewController.m */,
 				20C05FF4208DB4AA00EE82B9 /* DetailsViewController.h */,
 				20C05FF5208DB4AA00EE82B9 /* DetailsViewController.m */,
-				20D5A1FA209C55E600994BCE /* JuViewController.h */,
-				20D5A1FB209C55E600994BCE /* JuViewController.m */,
-				20D5A1FD209C55FF00994BCE /* QingViewController.h */,
-				20D5A1FE209C55FF00994BCE /* QingViewController.m */,
-				20D5A200209C560D00994BCE /* TaoViewController.h */,
-				20D5A201209C560D00994BCE /* TaoViewController.m */,
-				20D5A203209FF46A00994BCE /* DetailsHeaderView.h */,
-				20D5A204209FF46A00994BCE /* DetailsHeaderView.m */,
-				20D5A20920A0272500994BCE /* HJStarView.h */,
-				20D5A20A20A0272500994BCE /* HJStarView.m */,
-				20D5A1F4208F15D800994BCE /* RHMenuItem.h */,
-				20D5A1F5208F15D800994BCE /* RHMenuItem.m */,
-				20D5A1F1208F0B5200994BCE /* HJHeaderView.h */,
-				20D5A1F2208F0B5200994BCE /* HJHeaderView.m */,
+				20EB0FC620A2E1BB000CCE09 /* PlayListViewController.h */,
+				20EB0FC720A2E1BB000CCE09 /* PlayListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -484,10 +469,9 @@
 				20C05FE52088737700EE82B9 /* UIImage+RoundedCorner.m in Sources */,
 				FC8697AB2088D7A4008316F0 /* UIImageView+RH.m in Sources */,
 				FC8697A82088D213008316F0 /* UIView+RH.m in Sources */,
-				20D5A1F3208F0B5200994BCE /* HJHeaderView.m in Sources */,
 				20C05FF22088A08E00EE82B9 /* HanJuModel.m in Sources */,
 				20741FE22087168D0058E139 /* ViewController.m in Sources */,
-				20D5A202209C560D00994BCE /* TaoViewController.m in Sources */,
+				20EB0FC820A2E1BB000CCE09 /* PlayListViewController.m in Sources */,
 				205D0CB520872E58006D7892 /* HanJuViewController.m in Sources */,
 				20C05FF6208DB4AA00EE82B9 /* DetailsViewController.m in Sources */,
 				20D5A205209FF46A00994BCE /* DetailsHeaderView.m in Sources */,
@@ -499,9 +483,7 @@
 				20D5A20820A01FBE00994BCE /* UIImage+ImageEffects.m in Sources */,
 				20741FED208716BD0058E139 /* main.m in Sources */,
 				20C05FEF2088905D00EE82B9 /* HanJuVM.m in Sources */,
-				20D5A1FC209C55E600994BCE /* JuViewController.m in Sources */,
 				20D5A1F6208F15D800994BCE /* RHMenuItem.m in Sources */,
-				20D5A1FF209C55FF00994BCE /* QingViewController.m in Sources */,
 				20741FDF2087168D0058E139 /* AppDelegate.m in Sources */,
 				205D0CAF20872D46006D7892 /* MainNavViewController.m in Sources */,
 			);

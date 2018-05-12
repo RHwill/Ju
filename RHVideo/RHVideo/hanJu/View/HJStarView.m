@@ -21,7 +21,6 @@
     if (self = [super init]) {
         self.frame = CGRectMake(point.x, point.y, self.sizeImage.size.width * 5 + 15 + 25, self.sizeImage.size.height);
         self.star = star;
-//        self.backgroundColor = [UIColor redColor];
         [self setupUI];
     }
     return self;
@@ -59,7 +58,6 @@
         halfImageView.image = halfImage;
         [self addSubview:halfImageView];
     }
-    
 }
 
 - (UIImage *)sizeImage {

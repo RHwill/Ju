@@ -7,10 +7,11 @@
 //
 
 #import "DetailsViewController.h"
+#import "PlayListViewController.h"
 #import "DetailsHeaderView.h"
 #import "RHMenuItem.h"
 
-@interface DetailsViewController ()<UITableViewDataSource, UITableViewDelegate, RHMenuItemDataSoucre, RHMenuItemDelegate>
+@interface DetailsViewController ()<UITableViewDataSource, UITableViewDelegate, RHMenuItemDataSoucre, RHMenuItemDelegate, DetailsHeaderViewDelegate>
 
 @property (nonatomic, strong) UITableView *deatilsTableView;
 @property (nonatomic, strong) UIScrollView *detailsScrollView;
@@ -34,18 +35,24 @@
     self.detailsScrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
     self.detailsScrollView.showsVerticalScrollIndicator = NO;
     self.detailsScrollView.showsHorizontalScrollIndicator = NO;
-    self.detailsScrollView.delegate = self;
+    //    self.detailsScrollView.delegate = self;
+    self.detailsScrollView.bounces = NO;
+    self.detailsScrollView.contentSize = CGSizeMake(0, self.view.frame.size.height + 180);
     [self.view addSubview:self.detailsScrollView];
     
     // 头部view
     DetailsHeaderView *headerView = [[DetailsHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 180) model:self.model];
+    headerView.delegate = self;
     [self.detailsScrollView addSubview:headerView];
     
-    
-    RHMenuItem *rh = [[RHMenuItem alloc] initWithFrame:CGRectMake(0, 0, 200, 400)];
-    rh.dataSource = self;
-    rh.delegate = self;
-//    [self.view addSubview:rh];
+    RHMenuItem *menu = [[RHMenuItem alloc] initWithFrame:CGRectMake(0, 180, self.view.frame.size.width, self.view.frame.size.height - 180)];
+    menu.dataSource = self;
+    menu.delegate = self;
+    [self.detailsScrollView addSubview:menu];
+}
+
+- (void)detailsHeaderView:(DetailsHeaderView *)headerView didSelectedIndex:(DetailsHeaderViewSelectType)index {
+    NSLog(@"%@", @(index));
 }
 
 - (NSArray *)numberOfTitlesInMenuItem:(RHMenuItem *)menu {
@@ -53,10 +60,13 @@
 }
 
 - (void)menuItem:(RHMenuItem *)menu didSelectedItemAtIndex:(NSInteger)index {
-//    QingViewController *qing = [[QingViewController alloc] init];
-//    [self addChildViewController:qing];
-//    [menu.scrollView addSubview:qing.view];
-//    [qing didMoveToParentViewController:self];
+    
+    PlayListViewController *playListVC = [[PlayListViewController alloc] init];
+    CGRect newFrame = CGRectMake(index * self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height);
+    playListVC.view.frame = newFrame;
+    [self addChildViewController:playListVC];
+    [menu.scrollView addSubview:playListVC.view];
+    [playListVC didMoveToParentViewController:self];
 }
 
 - (UITableView *)deatilsTableView {

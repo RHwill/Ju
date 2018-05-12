@@ -40,17 +40,23 @@ static int titleLabelTag = 1009;
 }
 
 - (void)setupUI {
-    UIScrollView *titleScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 30)];
+    UIScrollView *titleScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 40)];
     titleScrollView.showsVerticalScrollIndicator = NO;
     titleScrollView.showsHorizontalScrollIndicator = NO;
+    titleScrollView.backgroundColor = [UIColor whiteColor];
     [self addSubview:titleScrollView];
     
-    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 30, self.frame.size.width, self.frame.size.height - 30)];
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, titleScrollView.frame.size.height, [UIScreen mainScreen].bounds.size.width, 0.3)];
+    lineView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.1];
+    [self addSubview:lineView];
+    
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, titleScrollView.frame.size.height, self.frame.size.width, self.frame.size.height - titleScrollView.frame.size.height)];
     self.scrollView.contentSize = CGSizeMake(self.frame.size.width * self.titlesArr.count, 0);
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.scrollsToTop = NO;
     self.scrollView.pagingEnabled = YES;
+    self.scrollView.bounces = YES;
     self.scrollView.delegate = self;
     [self addSubview:self.scrollView];
     for (int i = 0; i < self.titlesArr.count; i++) {
@@ -140,10 +146,14 @@ static int titleLabelTag = 1009;
         tempLabel.userInteractionEnabled = YES;
     }
     CGFloat rate = scrollView.contentOffset.x / self.frame.size.width;
+    if (rate < 0) {
+        rate = 0;
+    }
     UILabel *selectLabel = [self viewWithTag:rate + titleLabelTag];
     if (self.tempLabel.tag == selectLabel.tag) {
         return;
     }
+    
     _tempLabel.textColor = [UIColor blackColor];
     selectLabel.textColor = [UIColor magentaColor];
     _tempLabel = selectLabel;
