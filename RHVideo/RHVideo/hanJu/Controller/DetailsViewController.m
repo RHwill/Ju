@@ -11,10 +11,12 @@
 #import "DetailsHeaderView.h"
 #import "RHMenuItem.h"
 
-@interface DetailsViewController ()<UITableViewDataSource, UITableViewDelegate, RHMenuItemDataSoucre, RHMenuItemDelegate, DetailsHeaderViewDelegate>
+@interface DetailsViewController ()<UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, RHMenuItemDataSoucre, RHMenuItemDelegate, DetailsHeaderViewDelegate>
 
 @property (nonatomic, strong) UITableView *deatilsTableView;
 @property (nonatomic, strong) UIScrollView *detailsScrollView;
+
+@property (nonatomic, strong) UIScrollView *menuScrollview;
 
 @end
 
@@ -29,14 +31,32 @@
     [self setupViews];
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    self.menuScrollview.contentOffset = scrollView.contentOffset;
+    if (scrollView == self.detailsScrollView) {
+        if (self.detailsScrollView.contentOffset.y <= 0) {
+            self.detailsScrollView.contentOffset = CGPointMake(0, 0);
+            
+        }else if (self.detailsScrollView.contentOffset.y >= 180) {
+            self.detailsScrollView.contentOffset = CGPointMake(0, 180);
+        }
+    }
+    
+    
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    
+}
+
 - (void)setupViews {
     self.navigationController.navigationBar.translucent = NO;
     // 滚动view
     self.detailsScrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
     self.detailsScrollView.showsVerticalScrollIndicator = NO;
     self.detailsScrollView.showsHorizontalScrollIndicator = NO;
-    //    self.detailsScrollView.delegate = self;
-    self.detailsScrollView.bounces = NO;
+        self.detailsScrollView.delegate = self;
+//    self.detailsScrollView.bounces = NO;
     self.detailsScrollView.contentSize = CGSizeMake(0, self.view.frame.size.height + 180);
     [self.view addSubview:self.detailsScrollView];
     
@@ -60,7 +80,7 @@
 }
 
 - (void)menuItem:(RHMenuItem *)menu didSelectedItemAtIndex:(NSInteger)index {
-    
+    self.menuScrollview = menu.scrollView;
     PlayListViewController *playListVC = [[PlayListViewController alloc] init];
     CGRect newFrame = CGRectMake(index * self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height);
     playListVC.view.frame = newFrame;
