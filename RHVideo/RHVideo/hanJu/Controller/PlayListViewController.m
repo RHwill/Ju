@@ -30,7 +30,7 @@ NSString *cellID = @"PlayListCell";
     _listCollectionView.showsHorizontalScrollIndicator = NO;
     _listCollectionView.dataSource = self;
     _listCollectionView.delegate = self;
-   _listCollectionView.bounces = YES;
+//   _listCollectionView.bounces = YES;
     [_listCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellID];
     [self.view addSubview:_listCollectionView];
 }

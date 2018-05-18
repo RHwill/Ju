@@ -32,16 +32,25 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    self.detailsScrollView.contentOffset = scrollView.contentOffset;
 //    self.menuScrollview.contentOffset = scrollView.contentOffset;
-    if (scrollView == self.detailsScrollView) {
-        if (self.detailsScrollView.contentOffset.y <= 0) {
-            self.detailsScrollView.contentOffset = CGPointMake(0, 0);
-            
-        }else if (self.detailsScrollView.contentOffset.y >= 180) {
-            self.detailsScrollView.contentOffset = CGPointMake(0, 180);
-        }
-    }
     
+    NSLog(@"%@", @(scrollView.contentOffset.y));
+    
+    if (self.detailsScrollView.contentOffset.y <= 0) {
+        self.detailsScrollView.bounces = NO;
+        self.detailsScrollView.contentOffset = CGPointMake(0, 0);
+        
+    }else if (self.detailsScrollView.contentOffset.y >= 180) {
+        
+        self.detailsScrollView.contentOffset = CGPointMake(0, 180);
+        self.menuScrollview.contentOffset = scrollView.contentOffset;
+        
+    }else if (self.detailsScrollView.contentOffset.y > 0 && self.detailsScrollView.contentOffset.y >= 180) {
+        self.detailsScrollView.contentOffset = scrollView.contentOffset;
+    }else {
+        self.detailsScrollView.bounces = YES;
+    }
     
 }
 
@@ -55,9 +64,10 @@
     self.detailsScrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
     self.detailsScrollView.showsVerticalScrollIndicator = NO;
     self.detailsScrollView.showsHorizontalScrollIndicator = NO;
-        self.detailsScrollView.delegate = self;
+    self.detailsScrollView.delegate = self;
 //    self.detailsScrollView.bounces = NO;
-    self.detailsScrollView.contentSize = CGSizeMake(0, self.view.frame.size.height + 180);
+    self.detailsScrollView.alwaysBounceVertical = YES; // 垂直方向
+//    self.detailsScrollView.contentSize = CGSizeMake(0, self.view.frame.size.height + 180);
     [self.view addSubview:self.detailsScrollView];
     
     // 头部view
@@ -85,8 +95,8 @@
     CGRect newFrame = CGRectMake(index * self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height);
     playListVC.view.frame = newFrame;
     [self addChildViewController:playListVC];
-    [menu.scrollView addSubview:playListVC.view];
     [playListVC didMoveToParentViewController:self];
+    [menu.scrollView addSubview:playListVC.view];
 }
 
 - (UITableView *)deatilsTableView {

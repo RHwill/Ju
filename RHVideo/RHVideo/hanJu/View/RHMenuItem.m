@@ -52,11 +52,14 @@ static int titleLabelTag = 1009;
     
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, titleScrollView.frame.size.height, self.frame.size.width, self.frame.size.height - titleScrollView.frame.size.height)];
     self.scrollView.contentSize = CGSizeMake(self.frame.size.width * self.titlesArr.count, 0);
+    
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
+    self.scrollView.alwaysBounceVertical = YES; // 水平回弹
+    self.scrollView.alwaysBounceHorizontal = NO; // 垂直回弹
+    self.scrollView.directionalLockEnabled = YES;
     self.scrollView.scrollsToTop = NO;
     self.scrollView.pagingEnabled = YES;
-    self.scrollView.bounces = YES;
     self.scrollView.delegate = self;
     [self addSubview:self.scrollView];
     for (int i = 0; i < self.titlesArr.count; i++) {
